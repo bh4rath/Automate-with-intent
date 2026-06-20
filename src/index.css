@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap');
+@import "tailwindcss";
+
+:root {
+  --bg: #111013;
+  --surface: #1a181d;
+  --surface2: #221f26;
+  --border: rgba(255,255,255,0.07);
+  --border-hover: rgba(255,255,255,0.14);
+  --text: #EDE8DA;
+  --text-muted: rgba(237,232,218,0.55);
+  --text-dim: rgba(237,232,218,0.35);
+  --accent: #7C6AF7;
+  --accent-soft: rgba(124,106,247,0.12);
+  --accent-glow: rgba(124,106,247,0.25);
+  --green: #4ADE80;
+  --green-soft: rgba(74,222,128,0.1);
+  --amber: #F59E0B;
+  --red: #F87171;
+  --pink: #F472B6;
+  --orange: #FB923C;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Space Grotesk', sans-serif;
+  line-height: 1.3;
+}
+
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--surface); }
+::-webkit-scrollbar-thumb { background: var(--surface2); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--border-hover); }
+
+pre[class*="language-"] {
+  background: #0d0c0f !important;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.25rem 1.5rem;
+  margin: 0;
+  overflow-x: auto;
+  font-size: 0.82rem;
+  line-height: 1.75;
+}
+
+code[class*="language-"] {
+  font-family: 'Space Mono', monospace !important;
+  font-size: 0.82rem;
+}
+
+.token.keyword { color: #c792ea; }
+.token.string { color: #c3e88d; }
+.token.comment { color: rgba(237,232,218,0.35); font-style: italic; }
+.token.function { color: #82aaff; }
+.token.number { color: #f78c6c; }
+.token.operator { color: #89ddff; }
+.token.punctuation { color: #89ddff; }
+.token.parameter { color: #f07178; }
+.token.property { color: #f07178; }
+.token.boolean { color: #ff5370; }

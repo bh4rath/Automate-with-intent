@@ -1,0 +1,1788 @@
+[
+  {
+    "day": 1,
+    "title": "The Lie You Were Told",
+    "isSunday": false,
+    "idea": "I've sat across from hundreds of manual testers in 1:1 mentoring calls. The opening line is almost always some version of: \"I'm not really a coder, so I don't know if automation is for me.\"\n\nHere's what I tell every single one of them: you've been doing automation thinking since your first week as a tester. When you write a test case \u2014 Step 1: Open browser. Step 2: Go to login page. Step 3: Enter username. Step 4: Click login \u2014 that is an algorithm. You wrote it in English instead of JavaScript, but the logic is identical.\n\nPlaywright doesn't ask you to think differently. It asks you to write the same thinking in a syntax a machine can execute. That's the entire gap. Not \"learn to code from zero.\" Just \"learn to translate what you already know.\"",
+    "why": "I've watched two kinds of testers in my career. One waits two years \"preparing\" to start automation \u2014 reading, researching, never opening a code editor. The other opens VS Code in week one, writes broken code, and fixes it. The second one is always the one who gets hired first. Every time.\n\nThe market doesn't reward readiness. It rewards reps. TAE roles in India are growing faster than the supply of people who'll actually sit down and type the first line.",
+    "build": {
+      "tool": "A notebook or notes app \u2014 no code today, on purpose.",
+      "steps": [
+        "Write your most-tested manual test case from memory. Any test case \u2014 login, search, checkout \u2014 anything you've run 10+ times in your career.",
+        "Write it as numbered steps. Be specific: what you open, what you type, what you click, what you check at the end.",
+        "Save it. You'll need it again on Day 4 \u2014 and you'll be surprised how little it changes when it becomes code."
+      ]
+    },
+    "reflection": "\"Before today, I thought test automation was [X].\nToday, I noticed that my manual test case looks like [Y].\nThat makes me feel [Z] about starting this journey.\nTomorrow, I will [W].\"\n\nNo minimum word count. Write what's true, even if it's three lines. I'd rather have one honest sentence than a hundred performative words.",
+    "further": [
+      {
+        "tag": "Article",
+        "text": "Playwright Docs \u2014 Introduction (just the first two sections, nothing more today)",
+        "url": "https://playwright.dev/docs/intro"
+      },
+      {
+        "tag": "Video",
+        "text": "Search \"Manual vs Automation Testing\" on YouTube. Pick any 5-minute explainer.",
+        "url": null
+      }
+    ],
+    "stretch": "Write three test cases from memory, across different features or apps. Look at all three side by side. Notice the pattern: open, navigate, act, assert. I've never met a test case that doesn't reduce to that shape. That shape is what you're about to learn to write in code.",
+    "teaser": "Tomorrow I'll show you the tool that's quietly taking over from Selenium in teams I've worked with \u2014 and why your browser is about to become its best friend.",
+    "district": 1,
+    "districtName": "The Shift",
+    "dayStart": 1,
+    "dayEnd": 1,
+    "isStage": false,
+    "isFinalDay": false
+  },
+  {
+    "day": 2,
+    "title": "Meet Playwright",
+    "isSunday": false,
+    "idea": "Playwright is a browser automation tool built by Microsoft. It controls real browsers \u2014 Chrome, Firefox, Safari \u2014 using code.\n\nI've used Selenium for years. I switched most of my teams to Playwright for one reason: it stops fighting you. Selenium makes you write manual waits \u2014 \"wait 3 seconds for this button to appear.\" Playwright watches the page and waits automatically. That one feature alone eliminates half the flaky-test bugs I used to debug at midnight before a release.\n\nIt speaks JavaScript. JavaScript runs every website you've ever tested. That's not a coincidence \u2014 it means the language and the target are the same, which makes debugging far more intuitive than reaching for a separate language to test a JS-driven app.",
+    "why": "Every TAE job description I review now lists Playwright first or second, ahead of Selenium. That's not a trend I'm predicting \u2014 that's what I'm seeing in postings right now. Learning it isn't optional anymore. It's the floor.\n\nWhat I want you to notice today: Playwright's documentation reads like instructions for a human, not a manual for a compiler. That's deliberate. The tool was built with testers in mind, not just developers.",
+    "build": {
+      "tool": "Your browser. No installation today.",
+      "steps": [
+        "Go to playwright.dev. Spend 15 minutes on the homepage and the \"Why Playwright?\" section only.",
+        "Answer in your notes: what three browsers does Playwright support?",
+        "In Playwright's own words, what does \"auto-wait\" mean?",
+        "What's one feature that surprised you?"
+      ]
+    },
+    "reflection": "\"Before today, I thought automation tools were [X].\nToday, I noticed that Playwright [Y].\nThat makes me feel [Z] about using it.\nTomorrow, I will [W].\"",
+    "further": [
+      {
+        "tag": "Article",
+        "text": "Playwright Docs \u2014 \"Why Playwright?\"",
+        "url": "https://playwright.dev/docs/why-playwright"
+      },
+      {
+        "tag": "Video",
+        "text": "Search \"Playwright in 100 seconds\" on YouTube. Fireship's version is fast and accurate.",
+        "url": null
+      }
+    ],
+    "stretch": "Read the last 3 entries in Playwright's release notes: playwright.dev/docs/release-notes. What's being added? What does that tell you about where the tool \u2014 and the skill demand \u2014 is heading?",
+    "teaser": "Tomorrow we set up your machine \u2014 three installs, fifteen minutes, and you'll run your first automated browser action before the day ends.",
+    "district": 1,
+    "districtName": "The Shift",
+    "dayStart": 2,
+    "dayEnd": 2,
+    "isStage": false,
+    "isFinalDay": false
+  },
+  {
+    "day": 3,
+    "title": "Your Machine, Ready",
+    "isSunday": false,
+    "idea": "Three things, and you're ready to write real automation:\n\u2022 Node.js \u2014 the engine that runs JavaScript on your machine\n\u2022 npm \u2014 the package manager that installs JavaScript tools\n\u2022 Playwright \u2014 installed via npm\n\nI've onboarded over a hundred testers onto automation stacks. The single biggest predictor of who finishes the cohort isn't prior coding experience. It's whether they get through setup day without quitting. Today is that day. Get through it.",
+    "why": "I've seen brilliant testers stall for months at \"I'll set it up this weekend.\" The weekend never comes. The people I've watched succeed are the ones who treat setup as a 20-minute task, not a project. It is a 20-minute task. Today proves that to you.",
+    "build": {
+      "tool": "Terminal (Command Prompt / PowerShell on Windows, Terminal on Mac/Linux) + your laptop",
+      "steps": [
+        "Install Node.js: nodejs.org \u2192 download LTS \u2192 install. Verify: node --version (expect something like v20.x.x)",
+        "Create your project folder:\n  mkdir automate-with-intent\n  cd automate-with-intent",
+        "Install Playwright:\n  npm init playwright@latest\n  Choose: JavaScript \u00b7 tests folder \u00b7 yes to GitHub Actions \u00b7 yes to install browsers",
+        "Run the example test:\n  npx playwright test\n  Watch it run. Watch it pass.",
+        "Open the report:\n  npx playwright show-report\n  You just ran your first automated test. You didn't write it. But you ran it \u2014 and that's the fear most people never get past."
+      ]
+    },
+    "reflection": "\"Before today, I thought setting up a test automation environment was [X]. Today, I got through setup and noticed [Y]. That makes me feel [Z]. Tomorrow, I will [W].\"\n\nIf something broke \u2014 write about that too. The errors you hit during setup are some of the most useful debugging reps you'll get all district.",
+    "further": [
+      {
+        "tag": "Article",
+        "text": "Playwright Installation Guide",
+        "url": "https://playwright.dev/docs/intro#installing-playwright"
+      },
+      {
+        "tag": "Tool",
+        "text": "VS Code \u2014 if you don't already use a code editor",
+        "url": "https://code.visualstudio.com"
+      }
+    ],
+    "stretch": "Open the example test file Playwright generated. Read it line by line. Don't aim to understand everything \u2014 just notice: does any line echo a step from your Day 1 manual test case?",
+    "teaser": "That manual test case from Day 1 \u2014 tomorrow it becomes real code, and you watch a browser execute it on its own for the first time.",
+    "district": 1,
+    "districtName": "The Shift",
+    "dayStart": 3,
+    "dayEnd": 3,
+    "isStage": false,
+    "isFinalDay": false
+  },
+  {
+    "day": 4,
+    "title": "Your First Script",
+    "isSunday": false,
+    "idea": "Every Playwright test I've ever written \u2014 and I've written thousands \u2014 breaks down into three moves you already know from manual testing:\n\nARRANGE \u2014 set up the conditions (open browser, go to URL)\nACT     \u2014 do the thing (click, type, navigate)\nASSERT  \u2014 check the result (did the right thing happen?)\n\nThis is the AAA pattern. It's not a Playwright concept \u2014 it's a testing concept that Playwright happens to express cleanly. You already think in AAA. Today you write it that way.",
+    "why": "I remember my own first automated script. It wasn't elegant. It barely worked. But watching the browser do exactly what I told it to do \u2014 that's the moment I stopped being \"a manual tester curious about automation\" and started being someone who builds automation. That shift happens today for you too.",
+    "build": {
+      "tool": "VS Code + your automate-with-intent folder",
+      "steps": [
+        "Create: tests/day4-login.spec.js",
+        "Type the code below \u2014 type it, don't paste it. Typing builds muscle memory that copy-paste skips entirely.",
+        "Run: npx playwright test day4-login.spec.js --headed\n\nThe --headed flag means you watch the browser do it live."
+      ]
+    },
+    "code": "<span class=\"kw\">const</span> { test, expect } = <span class=\"fn\">require</span>(<span class=\"str\">'@playwright/test'</span>);\n\n<span class=\"fn\">test</span>(<span class=\"str\">'user can log in to Sauce Demo'</span>, <span class=\"kw\">async</span> ({ page }) => {\n  <span class=\"cm\">// ARRANGE</span>\n  <span class=\"kw\">await</span> page.<span class=\"fn\">goto</span>(<span class=\"str\">'https://www.saucedemo.com'</span>);\n\n  <span class=\"cm\">// ACT</span>\n  <span class=\"kw\">await</span> page.<span class=\"fn\">fill</span>(<span class=\"str\">'#user-name'</span>, <span class=\"str\">'standard_user'</span>);\n  <span class=\"kw\">await</span> page.<span class=\"fn\">fill</span>(<span class=\"str\">'#password'</span>, <span class=\"str\">'secret_sauce'</span>);\n  <span class=\"kw\">await</span> page.<span class=\"fn\">click</span>(<span class=\"str\">'#login-button'</span>);\n\n  <span class=\"cm\">// ASSERT</span>\n  <span class=\"kw\">await</span> <span class=\"fn\">expect</span>(page).<span class=\"fn\">toHaveURL</span>(\n    <span class=\"str\">'https://www.saucedemo.com/inventory.html'</span>\n  );\n});",
+    "reflection": "\"Before today, I thought writing automation code was [X].\nToday, I wrote my first Playwright test and noticed [Y].\nThat makes me feel [Z]. Tomorrow, I will [W].\"\n\nSpecific question for your reflection: which line of code maps to which step in your Day 1 manual test case?",
+    "further": [
+      {
+        "tag": "Article",
+        "text": "Playwright \u2014 Writing Tests",
+        "url": "https://playwright.dev/docs/writing-tests"
+      },
+      {
+        "tag": "Article",
+        "text": "Search \"AAA pattern testing\" \u2014 any short explainer",
+        "url": null
+      }
+    ],
+    "stretch": "Add this assertion after the URL check:\n\nawait expect(page.locator('.shopping_cart_link')).toBeVisible();\n\nWhy is this a stronger assertion than checking the URL alone? I ask every mentee this question \u2014 the answer separates people who check \"did it navigate\" from people who check \"did it work.\"",
+    "teaser": "Your test passes today. Tomorrow I'm going to make you break it on purpose \u2014 because reading failure well is the actual job.",
+    "district": 1,
+    "districtName": "The Shift",
+    "dayStart": 4,
+    "dayEnd": 4,
+    "isStage": false,
+    "isFinalDay": false,
+    "codeRaw": "const { test, expect } = require('@playwright/test');\n\ntest('user can log in to Sauce Demo', async ({ page }) => {\n  // ARRANGE\n  await page.goto('https://www.saucedemo.com');\n\n  // ACT\n  await page.fill('#user-name', 'standard_user');\n  await page.fill('#password', 'secret_sauce');\n  await page.click('#login-button');\n\n  // ASSERT\n  await expect(page).toHaveURL(\n    'https://www.saucedemo.com/inventory.html'\n  );\n});"
+  },
+  {
+    "day": 5,
+    "title": "The Art of Reading Failure",
+    "isSunday": false,
+    "idea": "A passing test tells you one thing. A failing test \u2014 if you can read it \u2014 tells you everything.\n\nI can spot a junior automation engineer in seconds: they panic at a red screen and start randomly changing code. A senior engineer reads the error message first, forms a hypothesis, then changes one thing. That's the entire difference, and it's learnable in a single afternoon. Today is that afternoon.",
+    "why": "In your first TAE role, you'll spend more hours debugging failing tests than writing new ones \u2014 that's just the job. Teams don't hire people who can write tests. They hire people who can tell them, fast, whether a failing test means a real bug or a flaky script.",
+    "build": {
+      "tool": "VS Code + your day4-login.spec.js file",
+      "steps": [
+        "BREAK 1 \u2014 Wrong URL: change the goto URL to an invalid path. Run. Read the error. Write down what it says. Fix it.",
+        "BREAK 2 \u2014 Wrong selector: change '#user-name' to '#username'. Run. Read the error. Fix it.",
+        "BREAK 3 \u2014 Wrong assertion: change the expected URL to something incorrect. Run. Read the error. Fix it.",
+        "For each: record the exact error, what Playwright expected vs. what it got, and how you diagnosed the fix."
+      ]
+    },
+    "reflection": "\"Before today, I thought test failure messages were [X]. Today, I noticed that error messages actually [Y]. That makes me feel [Z] about debugging in the future. Tomorrow, I will [W].\"",
+    "further": [
+      {
+        "tag": "Article",
+        "text": "Playwright \u2014 Debugging Tests",
+        "url": "https://playwright.dev/docs/debug"
+      },
+      {
+        "tag": "Article",
+        "text": "Search \"how to read a stack trace\" \u2014 any beginner explainer",
+        "url": null
+      }
+    ],
+    "stretch": "Run: npx playwright test day4-login.spec.js --debug\n\nStep through the Inspector one action at a time. Notice how Playwright pauses and waits \u2014 this is the same mechanism behind the auto-wait feature from Day 2.",
+    "teaser": "You've tested the user who does everything right. Tomorrow we test the ones who don't \u2014 because that's where the real bugs live.",
+    "district": 1,
+    "districtName": "The Shift",
+    "dayStart": 5,
+    "dayEnd": 5,
+    "isStage": false,
+    "isFinalDay": false
+  },
+  {
+    "day": 6,
+    "title": "Testing the Unhappy Path",
+    "isSunday": false,
+    "idea": "Every test I review in a code audit falls into one of two buckets: happy-path-only, or genuinely useful. The difference is whether the engineer tested what breaks, not just what works.\n\nSauce Demo gives you three login failures to practice on: wrong password, locked-out user, empty fields. Each produces a different error message. Each deserves its own test.",
+    "why": "In interviews, I ask candidates \"what would you test here?\" Juniors describe the happy path. The ones I hire describe what they expect to break. Your manual testing instinct \u2014 the part of you that always asks \"but what if the user does X wrong\" \u2014 is your biggest edge over someone who only knows how to code. Don't let automation make you forget that instinct. Encode it.",
+    "build": {
+      "tool": "VS Code",
+      "steps": [
+        "Create: tests/day6-login-negative.spec.js",
+        "Write all three negative tests, using test.beforeEach() to avoid repeating the same navigation step in every test.",
+        "Run: npx playwright test day6-login-negative.spec.js --headed"
+      ]
+    },
+    "code": "<span class=\"kw\">const</span> { test, expect } = <span class=\"fn\">require</span>(<span class=\"str\">'@playwright/test'</span>);\n\ntest.<span class=\"fn\">beforeEach</span>(<span class=\"kw\">async</span> ({ page }) => {\n  <span class=\"kw\">await</span> page.<span class=\"fn\">goto</span>(<span class=\"str\">'https://www.saucedemo.com'</span>);\n});\n\n<span class=\"fn\">test</span>(<span class=\"str\">'locked out user sees error message'</span>, <span class=\"kw\">async</span> ({ page }) => {\n  <span class=\"kw\">await</span> page.<span class=\"fn\">fill</span>(<span class=\"str\">'#user-name'</span>, <span class=\"str\">'locked_out_user'</span>);\n  <span class=\"kw\">await</span> page.<span class=\"fn\">fill</span>(<span class=\"str\">'#password'</span>, <span class=\"str\">'secret_sauce'</span>);\n  <span class=\"kw\">await</span> page.<span class=\"fn\">click</span>(<span class=\"str\">'#login-button'</span>);\n  <span class=\"kw\">await</span> <span class=\"fn\">expect</span>(page.<span class=\"fn\">locator</span>(<span class=\"str\">'[data-test=\"error\"]'</span>))\n    .<span class=\"fn\">toContainText</span>(<span class=\"str\">'locked out'</span>);\n});\n\n<span class=\"fn\">test</span>(<span class=\"str\">'wrong password shows error'</span>, <span class=\"kw\">async</span> ({ page }) => {\n  <span class=\"kw\">await</span> page.<span class=\"fn\">fill</span>(<span class=\"str\">'#user-name'</span>, <span class=\"str\">'standard_user'</span>);\n  <span class=\"kw\">await</span> page.<span class=\"fn\">fill</span>(<span class=\"str\">'#password'</span>, <span class=\"str\">'wrong_password'</span>);\n  <span class=\"kw\">await</span> page.<span class=\"fn\">click</span>(<span class=\"str\">'#login-button'</span>);\n  <span class=\"kw\">await</span> <span class=\"fn\">expect</span>(page.<span class=\"fn\">locator</span>(<span class=\"str\">'[data-test=\"error\"]'</span>))\n    .<span class=\"fn\">toBeVisible</span>();\n});\n\n<span class=\"fn\">test</span>(<span class=\"str\">'empty fields shows error'</span>, <span class=\"kw\">async</span> ({ page }) => {\n  <span class=\"kw\">await</span> page.<span class=\"fn\">click</span>(<span class=\"str\">'#login-button'</span>);\n  <span class=\"kw\">await</span> <span class=\"fn\">expect</span>(page.<span class=\"fn\">locator</span>(<span class=\"str\">'[data-test=\"error\"]'</span>))\n    .<span class=\"fn\">toContainText</span>(<span class=\"str\">'Username is required'</span>);\n});",
+    "reflection": "\"Before today, I thought negative test cases in automation were [X]. Today, I noticed that test.beforeEach() [Y]. That makes me feel [Z] about my instinct as a tester. Tomorrow, I will [W].\"",
+    "further": [
+      {
+        "tag": "Article",
+        "text": "Playwright \u2014 test.beforeEach() and hooks",
+        "url": "https://playwright.dev/docs/api/class-test#test-before-each"
+      },
+      {
+        "tag": "Article",
+        "text": "Search \"positive vs negative testing\" \u2014 any QA blog",
+        "url": null
+      }
+    ],
+    "stretch": "Log in manually as 'performance_glitch_user' (password: secret_sauce). Watch what happens. Then write an automated test that asserts the inventory page eventually loads, even slowly. Look up Playwright's timeout option for this.",
+    "teaser": "Six days, six tests. Tomorrow we stop coding and ask the question that actually matters: what did you become this week?",
+    "district": 1,
+    "districtName": "The Shift",
+    "dayStart": 6,
+    "dayEnd": 6,
+    "isStage": false,
+    "isFinalDay": false,
+    "codeRaw": "const { test, expect } = require('@playwright/test');\n\ntest.beforeEach(async ({ page }) => {\n  await page.goto('https://www.saucedemo.com');\n});\n\ntest('locked out user sees error message', async ({ page }) => {\n  await page.fill('#user-name', 'locked_out_user');\n  await page.fill('#password', 'secret_sauce');\n  await page.click('#login-button');\n  await expect(page.locator('[data-test=\"error\"]'))\n    .toContainText('locked out');\n});\n\ntest('wrong password shows error', async ({ page }) => {\n  await page.fill('#user-name', 'standard_user');\n  await page.fill('#password', 'wrong_password');\n  await page.click('#login-button');\n  await expect(page.locator('[data-test=\"error\"]'))\n    .toBeVisible();\n});\n\ntest('empty fields shows error', async ({ page }) => {\n  await page.click('#login-button');\n  await expect(page.locator('[data-test=\"error\"]'))\n    .toContainText('Username is required');\n});"
+  },
+  {
+    "day": 7,
+    "title": "Connecting the Dots",
+    "isSunday": true,
+    "recap": "Look back at your six reflections this week. Then write on:\n\n\u2013 Day 1 you wrote a manual test case. Day 4 you ran it as code. What changed? What stayed the same?\n\n\u2013 What surprised you most this week \u2014 about the tool, the process, or yourself?\n\n\u2013 What did you resist? Setup? Typing instead of pasting? Be honest.\n\n\u2013 What does \"I am a test automation engineer\" mean to you now, versus seven days ago?\n\nNo minimum word count. Write what's true.",
+    "community": "Share one screenshot this week \u2014 first passing test, first error message, your HTML report. It doesn't need to be impressive. It needs to be real. I've mentored enough cohorts to know: the people who post the messy screenshot are the ones who finish.",
+    "rest": "You installed tools, wrote real code, broke things on purpose, and fixed them. That's a real week of engineering work.\n\nRest is allowed. It's also part of the job \u2014 burnt-out testers write worse tests.",
+    "teaser": "District 2 starts Monday. Just enough JavaScript to make Playwright do anything you want \u2014 taught the way I'd teach it in a 1:1, not the way a bootcamp would.",
+    "district": 1,
+    "districtName": "The Shift",
+    "dayStart": 7,
+    "dayEnd": 7,
+    "isStage": false,
+    "isFinalDay": false
+  },
+  {
+    "day": 8,
+    "district": 2,
+    "districtName": "The Language",
+    "title": "Variables Are Just Labelled Boxes",
+    "isSunday": false,
+    "idea": "In Week 1 you hardcoded everything \u2014 'standard_user', 'secret_sauce', typed directly into your test. That works once. It breaks the moment you need the same value in five places and have to change all five by hand.\n\nA variable is just a labelled box that holds a value. Instead of writing 'standard_user' six times, you write it once, put it in a box called username, and use the box everywhere.\n\nconst username = 'standard_user';\nconst password = 'secret_sauce';\n\nconst means \"this box's contents won't change during this test.\" That's the only keyword you need this week \u2014 let means \"this box's contents might change,\" and you'll meet it on Day 10 when you actually need that flexibility. Until then, default to const. I tell every mentee: const until you have a reason not to.",
+    "why": "I review a lot of test code from junior automation engineers. The single most common smell I see is the same string typed six different times across one file. Then the password changes, and five of the six get updated. The sixth test starts failing for a reason nobody can find in ten minutes of looking. Variables aren't a JavaScript concept you learn for an exam. They're how you stop creating bugs in your own test suite.",
+    "build": {
+      "tool": "VS Code, your day4-login.spec.js file",
+      "steps": [
+        "Refactor day4-login.spec.js using variables. Open the file and rewrite it using const for username, password, and baseUrl.",
+        "Use the variables everywhere you previously hardcoded the string \u2014 in page.fill() calls and in your assertion.",
+        "Run it. Confirm it still passes. Nothing about the test's behaviour changed \u2014 only how it's written. That's the whole point: same outcome, fewer places a typo can hide."
+      ]
+    },
+    "code": "<span class=\"kw\">const</span> { test, expect } = <span class=\"fn\">require</span>(<span class=\"str\">'@playwright/test'</span>);\n\n<span class=\"fn\">test</span>(<span class=\"str\">'user can log in to Sauce Demo'</span>, <span class=\"kw\">async</span> ({ page }) => {\n  <span class=\"kw\">const</span> username = <span class=\"str\">'standard_user'</span>;\n  <span class=\"kw\">const</span> password = <span class=\"str\">'secret_sauce'</span>;\n  <span class=\"kw\">const</span> baseUrl = <span class=\"str\">'https://www.saucedemo.com'</span>;\n\n  <span class=\"kw\">await</span> page.<span class=\"fn\">goto</span>(baseUrl);\n  <span class=\"kw\">await</span> page.<span class=\"fn\">fill</span>(<span class=\"str\">'#user-name'</span>, username);\n  <span class=\"kw\">await</span> page.<span class=\"fn\">fill</span>(<span class=\"str\">'#password'</span>, password);\n  <span class=\"kw\">await</span> page.<span class=\"fn\">click</span>(<span class=\"str\">'#login-button'</span>);\n\n  <span class=\"kw\">await</span> <span class=\"fn\">expect</span>(page).<span class=\"fn\">toHaveURL</span>(baseUrl + <span class=\"str\">'/inventory.html'</span>);\n});",
+    "reflection": "\"Before today, I thought variables in code were [X].\nToday, I noticed that refactoring with const made my test [Y].\nThat makes me feel [Z] about reading other people's test code.\nTomorrow, I will [W].\"",
+    "further": [
+      {
+        "tag": "Article",
+        "text": "MDN \u2014 \"Storing the information you need \u2014 Variables.\" Just the first half. Stop once you understand const vs let.",
+        "url": "https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/Variables"
+      }
+    ],
+    "stretch": "baseUrl + '/inventory.html' is called string concatenation \u2014 joining two strings together. There's a cleaner modern way to do this called a template literal: backtick-wrapped ${baseUrl}/inventory.html\n\nTry rewriting your assertion using backticks and ${} instead of +. Which reads easier to you? There's no wrong answer \u2014 but you'll see backtick syntax constantly in other people's code, so recognising it matters even if you don't use it yet.",
+    "teaser": "You've been writing the same three lines of login code in every test file. Tomorrow I show you how to write it exactly once.",
+    "dayStart": 8,
+    "dayEnd": 8,
+    "isStage": false,
+    "isFinalDay": false,
+    "codeRaw": "const { test, expect } = require('@playwright/test');\n\ntest('user can log in to Sauce Demo', async ({ page }) => {\n  const username = 'standard_user';\n  const password = 'secret_sauce';\n  const baseUrl = 'https://www.saucedemo.com';\n\n  await page.goto(baseUrl);\n  await page.fill('#user-name', username);\n  await page.fill('#password', password);\n  await page.click('#login-button');\n\n  await expect(page).toHaveURL(baseUrl + '/inventory.html');\n});"
+  },
+  {
+    "day": 9,
+    "district": 2,
+    "districtName": "The Language",
+    "title": "Functions: Write It Once, Use It Everywhere",
+    "isSunday": false,
+    "idea": "You now have two test files that both start with the same three lines: navigate, fill username, fill password, click login. That's not a coincidence \u2014 almost every test you'll ever write against Sauce Demo starts with logging in.\n\nA function is a named, reusable block of code. Instead of retyping the login steps every time, you wrap them once in async function login(page, username, password) { ... }. Then anywhere you need to log in, you just call: await login(page, 'standard_user', 'secret_sauce');\n\nOne line instead of four. The function is the box; username and password are the inputs you hand it \u2014 these are called parameters.",
+    "why": "This is the first moment your code starts looking like a real test suite instead of a pile of scripts. I've inherited test suites with the same 12 lines copy-pasted across 40 files. The day someone changes a CSS selector, all 40 files break, and whoever's on call that week spends their evening fixing the same bug 40 times. A function fixes the bug once.",
+    "build": {
+      "tool": "VS Code",
+      "steps": [
+        "Create a new file: tests/day9-login-function.spec.js",
+        "Write an async function called login(page, username, password) that does the navigate + fill + fill + click steps.",
+        "Write two test() blocks that each call login() with different credentials \u2014 one with standard_user, one with locked_out_user.",
+        "Notice: two tests, one login function, zero duplication. Run both and confirm they pass."
+      ]
+    },
+    "code": "<span class=\"kw\">const</span> { test, expect } = <span class=\"fn\">require</span>(<span class=\"str\">'@playwright/test'</span>);\n\n<span class=\"kw\">async function</span> <span class=\"fn\">login</span>(page, username, password) {\n  <span class=\"kw\">await</span> page.<span class=\"fn\">goto</span>(<span class=\"str\">'https://www.saucedemo.com'</span>);\n  <span class=\"kw\">await</span> page.<span class=\"fn\">fill</span>(<span class=\"str\">'#user-name'</span>, username);\n  <span class=\"kw\">await</span> page.<span class=\"fn\">fill</span>(<span class=\"str\">'#password'</span>, password);\n  <span class=\"kw\">await</span> page.<span class=\"fn\">click</span>(<span class=\"str\">'#login-button'</span>);\n}\n\n<span class=\"fn\">test</span>(<span class=\"str\">'standard user logs in successfully'</span>, <span class=\"kw\">async</span> ({ page }) => {\n  <span class=\"kw\">await</span> <span class=\"fn\">login</span>(page, <span class=\"str\">'standard_user'</span>, <span class=\"str\">'secret_sauce'</span>);\n  <span class=\"kw\">await</span> <span class=\"fn\">expect</span>(page).<span class=\"fn\">toHaveURL</span>(\n    <span class=\"str\">'https://www.saucedemo.com/inventory.html'</span>\n  );\n});\n\n<span class=\"fn\">test</span>(<span class=\"str\">'locked out user sees error'</span>, <span class=\"kw\">async</span> ({ page }) => {\n  <span class=\"kw\">await</span> <span class=\"fn\">login</span>(page, <span class=\"str\">'locked_out_user'</span>, <span class=\"str\">'secret_sauce'</span>);\n  <span class=\"kw\">await</span> <span class=\"fn\">expect</span>(page.<span class=\"fn\">locator</span>(<span class=\"str\">'[data-test=\"error\"]'</span>))\n    .<span class=\"fn\">toContainText</span>(<span class=\"str\">'locked out'</span>);\n});",
+    "reflection": "\"Before today, I thought reusing code meant [X].\nToday, I noticed that writing the login function [Y].\nThat makes me feel [Z] about the tests I wrote in District 1.\nTomorrow, I will [W].\"",
+    "further": [
+      {
+        "tag": "Article",
+        "text": "MDN \u2014 \"Functions \u2014 reusable blocks of code\"",
+        "url": "https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Functions"
+      }
+    ],
+    "stretch": "Add a third parameter to login() called expectedUrl, and move the assertion inside the function itself. Now login() both logs in AND confirms it worked. What's the tradeoff of putting an assertion inside a reusable function instead of in the test? Think about it before you Google it.",
+    "teaser": "You're about to test the same login function against six different users without writing six different tests by hand.",
+    "dayStart": 9,
+    "dayEnd": 9,
+    "isStage": false,
+    "isFinalDay": false,
+    "codeRaw": "const { test, expect } = require('@playwright/test');\n\nasync function login(page, username, password) {\n  await page.goto('https://www.saucedemo.com');\n  await page.fill('#user-name', username);\n  await page.fill('#password', password);\n  await page.click('#login-button');\n}\n\ntest('standard user logs in successfully', async ({ page }) => {\n  await login(page, 'standard_user', 'secret_sauce');\n  await expect(page).toHaveURL(\n    'https://www.saucedemo.com/inventory.html'\n  );\n});\n\ntest('locked out user sees error', async ({ page }) => {\n  await login(page, 'locked_out_user', 'secret_sauce');\n  await expect(page.locator('[data-test=\"error\"]'))\n    .toContainText('locked out');\n});"
+  },
+  {
+    "day": 10,
+    "district": 2,
+    "districtName": "The Language",
+    "title": "If This, Then That",
+    "isSunday": false,
+    "idea": "Every manual test plan has branches. \"If the user is locked out, expect an error. If not, expect the inventory page.\" You say this in plain English constantly. In code, this is an if/else statement.\n\nRead it exactly like English: \"if the username equals locked out user, do this. Otherwise, do that.\" === means \"is exactly equal to\" \u2014 note the three equals signs, not one. One equals sign (=) assigns a value into a box. Three equals signs (===) compares two values. Mixing these up is the single most common beginner JS bug, and I still see senior engineers do it occasionally under deadline pressure.",
+    "why": "This is the moment your reflection prompt's own Mad Lib frame \u2014 \"Before today I thought X, today I noticed Y\" \u2014 and an if/else statement are doing the same job: branching based on a condition. You already think in conditionals. Code conditionals just need precise syntax where English allows ambiguity.",
+    "build": {
+      "tool": "VS Code",
+      "steps": [
+        "Create: tests/day10-conditional-login.spec.js",
+        "Write one function loginAndCheck(page, username) that logs in, then uses if/else to assert the correct outcome depending on whether username is locked_out_user or not.",
+        "Call this function from two separate test() blocks \u2014 one with 'standard_user', one with 'locked_out_user'.",
+        "Run both tests. Confirm both pass \u2014 using the same function, branching to two different outcomes."
+      ]
+    },
+    "code": "<span class=\"kw\">async function</span> <span class=\"fn\">loginAndCheck</span>(page, username) {\n  <span class=\"kw\">await</span> page.<span class=\"fn\">goto</span>(<span class=\"str\">'https://www.saucedemo.com'</span>);\n  <span class=\"kw\">await</span> page.<span class=\"fn\">fill</span>(<span class=\"str\">'#user-name'</span>, username);\n  <span class=\"kw\">await</span> page.<span class=\"fn\">fill</span>(<span class=\"str\">'#password'</span>, <span class=\"str\">'secret_sauce'</span>);\n  <span class=\"kw\">await</span> page.<span class=\"fn\">click</span>(<span class=\"str\">'#login-button'</span>);\n\n  <span class=\"kw\">if</span> (username === <span class=\"str\">'locked_out_user'</span>) {\n    <span class=\"kw\">await</span> <span class=\"fn\">expect</span>(page.<span class=\"fn\">locator</span>(<span class=\"str\">'[data-test=\"error\"]'</span>)).<span class=\"fn\">toBeVisible</span>();\n  } <span class=\"kw\">else</span> {\n    <span class=\"kw\">await</span> <span class=\"fn\">expect</span>(page).<span class=\"fn\">toHaveURL</span>(<span class=\"str\">'https://www.saucedemo.com/inventory.html'</span>);\n  }\n}",
+    "reflection": "\"Before today, I thought conditional logic in code was [X].\nToday, I noticed that === behaves differently from = because [Y].\nThat makes me feel [Z]. Tomorrow, I will [W].\"",
+    "further": [
+      {
+        "tag": "Article",
+        "text": "MDN \u2014 \"Making decisions in your code \u2014 conditionals\"",
+        "url": "https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/conditionals"
+      }
+    ],
+    "stretch": "Sauce Demo also has 'problem_user' and 'performance_glitch_user'. Extend your if/else into an if/else if/else chain that handles all four usernames with the correct expected outcome for each. You'll need to actually log in manually as problem_user first to see what breaks \u2014 I won't tell you. Go find out.",
+    "teaser": "Four if/else branches for four users is already getting messy. Tomorrow I show you the pattern that replaces all four branches with one loop \u2014 and it's the single biggest line-count reducer you'll learn in this entire cohort.",
+    "dayStart": 10,
+    "dayEnd": 10,
+    "isStage": false,
+    "isFinalDay": false,
+    "codeRaw": "async function loginAndCheck(page, username) {\n  await page.goto('https://www.saucedemo.com');\n  await page.fill('#user-name', username);\n  await page.fill('#password', 'secret_sauce');\n  await page.click('#login-button');\n\n  if (username === 'locked_out_user') {\n    await expect(page.locator('[data-test=\"error\"]')).toBeVisible();\n  } else {\n    await expect(page).toHaveURL('https://www.saucedemo.com/inventory.html');\n  }\n}"
+  },
+  {
+    "day": 11,
+    "district": 2,
+    "districtName": "The Language",
+    "title": "Loops: Stop Writing the Same Test Six Times",
+    "isSunday": false,
+    "idea": "Imagine testing that all six products on the Sauce Demo inventory page have a visible \"Add to cart\" button. You could write six nearly-identical assertions. Or you could put your six product names in a list \u2014 an array \u2014 and loop over it.\n\nfor (const product of products) { console.log(product); }\n\nRead it as: \"for each product in this list of products, do the thing inside the curly braces.\" The loop runs once per item, automatically. Three products, three lines saved you from writing three nearly-identical blocks of code.",
+    "why": "The first time I saw a junior engineer write the same assertion eight times with only the product name changed, I sat with them for twenty minutes and we turned it into a five-line loop. They told me afterward it was the first time automation \"clicked\" for them \u2014 because the repetition is exactly what you'd avoid doing manually too. A loop is just automating your own impatience with repetition.",
+    "build": {
+      "tool": "VS Code",
+      "steps": [
+        "Create: tests/day11-product-loop.spec.js",
+        "Log in, then use page.locator('.inventory_item_name').allTextContents() to extract all product names into an array.",
+        "Loop over the array with for (const name of productNames) and console.log() each one.",
+        "Run with --headed and watch the terminal output. You just extracted real data from the page and looped over it."
+      ]
+    },
+    "code": "<span class=\"kw\">const</span> { test, expect } = <span class=\"fn\">require</span>(<span class=\"str\">'@playwright/test'</span>);\n\n<span class=\"fn\">test</span>(<span class=\"str\">'all products show an add to cart button'</span>, <span class=\"kw\">async</span> ({ page }) => {\n  <span class=\"kw\">await</span> page.<span class=\"fn\">goto</span>(<span class=\"str\">'https://www.saucedemo.com'</span>);\n  <span class=\"kw\">await</span> page.<span class=\"fn\">fill</span>(<span class=\"str\">'#user-name'</span>, <span class=\"str\">'standard_user'</span>);\n  <span class=\"kw\">await</span> page.<span class=\"fn\">fill</span>(<span class=\"str\">'#password'</span>, <span class=\"str\">'secret_sauce'</span>);\n  <span class=\"kw\">await</span> page.<span class=\"fn\">click</span>(<span class=\"str\">'#login-button'</span>);\n\n  <span class=\"kw\">const</span> productNames = <span class=\"kw\">await</span> page\n    .<span class=\"fn\">locator</span>(<span class=\"str\">'.inventory_item_name'</span>)\n    .<span class=\"fn\">allTextContents</span>();\n\n  <span class=\"kw\">for</span> (<span class=\"kw\">const</span> name <span class=\"kw\">of</span> productNames) {\n    console.<span class=\"fn\">log</span>(<span class=\"str\">'Checking product:'</span>, name);\n  }\n\n  <span class=\"fn\">expect</span>(productNames.length).<span class=\"fn\">toBeGreaterThan</span>(0);\n});",
+    "reflection": "\"Before today, I thought looping through page elements was [X].\nToday, I noticed that allTextContents() gave me [Y].\nThat makes me feel [Z] about testing pages with lots of repeated elements.\nTomorrow, I will [W].\"",
+    "further": [
+      {
+        "tag": "Article",
+        "text": "MDN \u2014 \"Loops and iteration\"",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration"
+      }
+    ],
+    "stretch": "Inside your loop, assert that each product name is not an empty string: expect(name.length).toBeGreaterThan(0). Now you're not just printing data \u2014 you're asserting against every single product automatically, no matter how many Sauce Demo adds in the future. That's the real power of this pattern: it scales without you touching the test again.",
+    "teaser": "You've been finding elements with simple selectors like #user-name. Tomorrow I show you how Playwright actually finds elements on a messy real-world page \u2014 and why some selectors break the moment a developer changes one CSS class.",
+    "dayStart": 11,
+    "dayEnd": 11,
+    "isStage": false,
+    "isFinalDay": false,
+    "codeRaw": "const { test, expect } = require('@playwright/test');\n\ntest('all products show an add to cart button', async ({ page }) => {\n  await page.goto('https://www.saucedemo.com');\n  await page.fill('#user-name', 'standard_user');\n  await page.fill('#password', 'secret_sauce');\n  await page.click('#login-button');\n\n  const productNames = await page\n    .locator('.inventory_item_name')\n    .allTextContents();\n\n  for (const name of productNames) {\n    console.log('Checking product:', name);\n  }\n\n  expect(productNames.length).toBeGreaterThan(0);\n});"
+  },
+  {
+    "day": 12,
+    "district": 2,
+    "districtName": "The Language",
+    "title": "Selectors: How Playwright Finds Things",
+    "isSunday": false,
+    "idea": "Every page.fill() and page.click() you've written needs to know WHERE on the page to act. That's what a selector is \u2014 an address that tells Playwright \"click this exact element, not any other one.\"\n\nYou've used CSS selectors like '#user-name' without me naming them. Today you learn the selector types you'll actually use, ranked by how much I trust them:\n\n1. data-test attributes \u2014 [data-test=\"error\"]. Most reliable. Built specifically for testing.\n2. IDs \u2014 #user-name. Reliable if unique on the page.\n3. Text content \u2014 page.getByText('Add to cart'). Readable, but breaks if copy changes.\n4. CSS classes \u2014 .inventory_item_name. Fragile. Use as a last resort.",
+    "why": "I've debugged more flaky test suites caused by bad selectors than by any other single issue. A developer renames a CSS class for a redesign, and forty tests fail overnight \u2014 not because the feature broke, but because the test was anchored to the wrong thing. The selector you choose is a contract with the developer. data-test attributes are the strongest contract you can ask for.",
+    "build": {
+      "tool": "Chrome DevTools + VS Code",
+      "steps": [
+        "Open saucedemo.com in Chrome. Right-click the \"Add to cart\" button on any product \u2192 Inspect. Find its data-test attribute.",
+        "Create: tests/day12-selectors.spec.js",
+        "Write a test that logs in, then uses a data-test selector to click \"Add to cart\" on the first product (hint: data-test=\"add-to-cart-sauce-labs-backpack\").",
+        "Assert the cart badge shows \"1\" using selector .shopping_cart_badge. Run with --headed and watch the cart badge update."
+      ]
+    },
+    "reflection": "\"Before today, I thought all selectors were roughly equally reliable. Today, I noticed that data-test attributes [Y]. That makes me feel [Z] about the selectors I used back in District 1. Tomorrow, I will [W].\"",
+    "further": [
+      {
+        "tag": "Article",
+        "text": "Playwright \u2014 Locators (the official guide to every selector strategy Playwright supports)",
+        "url": "https://playwright.dev/docs/locators"
+      }
+    ],
+    "stretch": "Go back through every test file you've written since Day 4. For each selector, classify it: data-test, ID, text, or class. Pick the weakest one in your whole codebase and rewrite it using a stronger strategy. This is exactly the kind of pass I'd ask a junior engineer to do in a code review.",
+    "teaser": "You've been testing one thing at a time. Tomorrow you connect everything from this week \u2014 variables, functions, conditionals, loops, selectors \u2014 into a single test that mimics a real shopping journey from login to checkout.",
+    "dayStart": 12,
+    "dayEnd": 12,
+    "isStage": false,
+    "isFinalDay": false
+  },
+  {
+    "day": 13,
+    "district": 2,
+    "districtName": "The Language",
+    "title": "The Full Journey",
+    "isSunday": false,
+    "idea": "No new concept today. Today you combine everything from this district into one realistic test: a user logs in, adds a product to their cart, and proceeds to checkout \u2014 the actual shape of a real Sauce Demo user journey, and the actual shape of most automation tests you'll write in your first TAE job.\n\nThis is what I look for in a portfolio project: not six isolated snippets, but one coherent flow that proves you can chain steps together the way a real user \u2014 and a real test plan \u2014 would.",
+    "why": "Interviewers don't ask \"can you click a button.\" They ask \"walk me through a test you'd write for a checkout flow.\" Today you build the answer to that exact question, and you build it using only things you've learned and typed yourself this week. Nothing here is new syntax \u2014 it's assembly.",
+    "build": {
+      "tool": "VS Code",
+      "steps": [
+        "Create: tests/day13-full-journey.spec.js",
+        "Using a login() function (from Day 9), write one test that logs in as standard_user.",
+        "Add the Sauce Labs Backpack to the cart using a data-test selector (from Day 12). Assert the cart badge shows \"1.\"",
+        "Click the cart icon, navigate to the cart page, click \"Checkout.\"",
+        "Fill in first name, last name, postal code. Click \"Continue.\" Assert the page shows \"Checkout: Overview.\"",
+        "You'll need to inspect each new page's elements in DevTools as you go \u2014 I'm not handing you every selector this time. Finding them yourself is the actual skill."
+      ]
+    },
+    "reflection": "\"Before today, I thought chaining multiple steps into one test would be [X]. Today, I noticed that building the full checkout flow [Y]. That makes me feel [Z] about writing tests for real features at work. Tomorrow, I will [W].\"",
+    "further": [
+      {
+        "tag": "Article",
+        "text": "Playwright \u2014 Actions (covers fill, click, check, select, and the other interactions you used today)",
+        "url": "https://playwright.dev/docs/input"
+      }
+    ],
+    "stretch": "Refactor the checkout form steps into their own function, the same way you did with login() on Day 9. Now you have two reusable functions: login() and checkout(). This is the exact shape of Page Object Model thinking \u2014 you'll formalise this pattern properly in District 6, but you've already started doing it instinctively.",
+    "teaser": "Six days of new syntax. Tomorrow, no code \u2014 just the question that matters more than any keyword: do you actually think differently about test code now than you did a week ago?",
+    "dayStart": 13,
+    "dayEnd": 13,
+    "isStage": false,
+    "isFinalDay": false
+  },
+  {
+    "day": 14,
+    "district": 2,
+    "districtName": "The Language",
+    "title": "Connecting the Dots",
+    "isSunday": true,
+    "recap": "Look back at your six reflections this week. Then write on:\n\n\u2013 You refactored Day 4's test with variables on Day 8, and built a full checkout journey by Day 13. Reread both files side by side if you still have them. What does the difference tell you?\n\n\u2013 Which concept this week clicked fastest \u2014 variables, functions, conditionals, loops, or selectors? Which one resisted you the longest?\n\n\u2013 On Day 12 you ranked selectors by reliability. Has that changed how you'll write tests going forward, even outside this cohort?\n\n\u2013 A recruiter asks you: \"what's the difference between a manual test case and a Playwright test?\" After this week, what's your honest answer?\n\nNo minimum word count. Write what's true.",
+    "community": "Post your Day 13 full-journey test in the community \u2014 the whole file, not just a screenshot. This is the first piece of code in the cohort worth someone else reading closely. I'll be looking for selector choices specifically \u2014 and so should you, on each other's posts.",
+    "rest": "This was a heavier week than District 1. You went from \"I can run a test someone else wrote\" to \"I can build a multi-step journey from scratch.\" That's not a small jump.\n\nLet it land before you move on.",
+    "teaser": "District 3 starts Monday. You know how to write a test. Now I teach you how to organise dozens of them \u2014 and the first habit I drill into every mentee before their test suite gets out of hand.",
+    "dayStart": 14,
+    "dayEnd": 14,
+    "isStage": false,
+    "isFinalDay": false
+  },
+  {
+    "day": 15,
+    "district": 3,
+    "districtName": "Test Like a Pro",
+    "title": "A Passing Test Is Not the Same as a Working Feature",
+    "isSunday": false,
+    "idea": "I once watched a test suite go fully green the same week a payment bug shipped to production. Every test passed. The feature was still broken. How?\n\nThe tests only checked the happy path with one specific input. Nobody had asked: what if the amount is zero? What if it's negative? What if two requests fire at once? The tests weren't wrong. They were just answering a narrower question than anyone realized.\n\nA passing test tells you: \"the specific thing I checked, behaved the way I expected, under the specific conditions I set up.\" That's it. It says nothing about the things you didn't think to check. The gap between \"tests pass\" and \"feature works\" is exactly the size of your test design.",
+    "why": "This is the conceptual shift that takes someone from \"writes automation scripts\" to \"designs test coverage.\" Companies don't pay TAEs to type page.click() correctly \u2014 they pay them to decide what 50 lines of test code should actually verify out of the hundreds of things that could go wrong. That decision is the actual skill. Everything else is execution.",
+    "build": {
+      "tool": "Notebook + saucedemo.com (manual exploration, no code)",
+      "steps": [
+        "Pick ONE feature on Sauce Demo: the login form. Spend 20 minutes manually trying to break it \u2014 not automating anything, just clicking around like a curious, slightly mischievous user.",
+        "Try: special characters in the username field, extremely long input, pasting whitespace-only text, rapid double-clicking login, submitting with JavaScript disabled (DevTools \u2192 Settings \u2192 Disable JavaScript, if you're comfortable).",
+        "Write down every distinct behavior you observe \u2014 not just bugs. \"Nothing visibly happened\" is also a finding worth recording."
+      ]
+    },
+    "reflection": "\"Before today, I thought a passing test meant [X].\nToday, I noticed that manually exploring the login form revealed [Y].\nThat makes me feel [Z] about the six tests I already automated for this exact form.\nTomorrow, I will [W].\"",
+    "further": [
+      {
+        "tag": "Article",
+        "text": "Search \"exploratory testing vs scripted testing\" \u2014 any solid QA blog comparing the two approaches.",
+        "url": null
+      }
+    ],
+    "stretch": "Of everything you found today, pick the single most interesting behavior \u2014 bug or not. Write one sentence explaining why it matters, the way you'd explain it to a product manager who has 30 seconds to listen.",
+    "teaser": "You found real gaps today with nothing but curiosity and your hands. Tomorrow I give you a framework so you stop relying on luck to find them.",
+    "dayStart": 15,
+    "dayEnd": 15,
+    "isStage": false,
+    "isFinalDay": false
+  },
+  {
+    "day": 16,
+    "district": 3,
+    "districtName": "Test Like a Pro",
+    "title": "The Boundary Value Framework",
+    "isSunday": false,
+    "idea": "Most bugs don't live in the middle of normal behavior. They live at the edges \u2014 the boundaries. If a field accepts 1 to 10 items, the bug is rarely at 5. It's at 0, 1, 10, and 11.\n\nThis is called boundary value analysis, and it's the single highest-leverage test design technique I know. Instead of guessing randomly at what might break, you deliberately target:\n\n\u2013 The minimum valid value\n\u2013 One below the minimum (invalid)\n\u2013 The maximum valid value\n\u2013 One above the maximum (invalid)\n\u2013 Empty / zero / null where applicable\n\nSauce Demo's checkout form requires a postal code. What's the minimum length that's accepted? Is there a maximum? What happens at exactly the boundary?",
+    "why": "I ask this in nearly every TAE interview I run: \"this field accepts quantities 1 through 99. What test cases do you write?\" Candidates who say \"I'd test a few numbers like 5, 20, 50\" get a polite nod. Candidates who say \"I'd test 0, 1, 99, 100, and negative numbers\" get the next round. Boundary thinking is the fastest tell of someone who's actually tested software before, versus someone who's only ever written code.",
+    "build": {
+      "tool": "VS Code + saucedemo.com",
+      "steps": [
+        "Create: tests/day16-boundary-quantity.spec.js",
+        "On the cart page, inspect the quantity field's constraints by examining it in DevTools first.",
+        "Write a test using a loop (from Day 11) that tries multiple boundary values for postal code on the checkout form: empty string, a single character, a very long string (50+ characters), and a normal value like \"600001.\"",
+        "Log what happens for each. Note which ones the app silently accepts that probably shouldn't be accepted."
+      ]
+    },
+    "reflection": "\"Before today, I thought edge cases were [X].\nToday, I noticed that testing the postal code boundaries revealed [Y].\nThat makes me feel [Z] about how I'll design tests going forward.\nTomorrow, I will [W].\"",
+    "further": [
+      {
+        "tag": "Article",
+        "text": "Search \"boundary value analysis testing examples\" \u2014 any explainer with concrete before/after examples.",
+        "url": null
+      }
+    ],
+    "stretch": "Apply boundary thinking to a field you haven't tested yet: the username field on login. What's the longest username Sauce Demo will accept before truncating or rejecting it? Find the boundary experimentally, then write one test that locks in that boundary as a known, documented behavior.",
+    "teaser": "You've been hand-typing every test value. Tomorrow you separate your test data from your test logic \u2014 and your tests get easier to extend than you'd expect.",
+    "dayStart": 16,
+    "dayEnd": 16,
+    "isStage": false,
+    "isFinalDay": false
+  },
+  {
+    "day": 17,
+    "district": 3,
+    "districtName": "Test Like a Pro",
+    "title": "Separate Your Data from Your Logic",
+    "isSunday": false,
+    "idea": "Yesterday you tested four postal code values. If you wrote four separate test() blocks with the logic copy-pasted each time, you repeated yourself \u2014 the exact problem functions solved for you back on Day 9.\n\nThe fix: keep your test data in an array, and loop the same test logic over every value.\n\nconst postalCodes = [\n  { value: '', label: 'empty' },\n  { value: '1', label: 'single character' },\n  { value: '6'.repeat(50), label: 'fifty characters' },\n  { value: '600001', label: 'normal value' }\n];\n\nfor (const code of postalCodes) {\n  test the postal code using code.value and code.label\n}\n\nSame idea as Day 11's loop, applied to test generation itself instead of just assertions inside one test.",
+    "why": "This pattern is how real test suites scale to hundreds of cases without hundreds of nearly-identical files. I've seen test suites with 200 test() blocks that were really the same 12 lines of logic repeated with different data. The moment you separate data from logic, adding a new test case becomes \"add one line to an array\" instead of \"copy-paste 15 lines and hope you didn't introduce a typo.\"",
+    "build": {
+      "tool": "VS Code",
+      "steps": [
+        "Create: tests/day17-data-driven-postal.spec.js",
+        "Rebuild yesterday's postal code test using the array + loop pattern. Each entry should generate its own named test().",
+        "When you run npx playwright test, you should see four separate test results in the report, each labeled clearly (empty, single character, fifty characters, normal value), even though you only wrote the test logic once.",
+        "Run it and check the HTML report. Confirm all four show up as distinct, individually named test results."
+      ]
+    },
+    "code": "<span class=\"kw\">const</span> postalCodes = [\n  { value: <span class=\"str\">''</span>, label: <span class=\"str\">'empty'</span> },\n  { value: <span class=\"str\">'1'</span>, label: <span class=\"str\">'single character'</span> },\n  { value: <span class=\"str\">'6'</span>.<span class=\"fn\">repeat</span>(50), label: <span class=\"str\">'fifty characters'</span> },\n  { value: <span class=\"str\">'600001'</span>, label: <span class=\"str\">'normal value'</span> }\n];\n\n<span class=\"kw\">for</span> (<span class=\"kw\">const</span> code <span class=\"kw\">of</span> postalCodes) {\n  <span class=\"fn\">test</span>(<span class=\"cm\">`postal code: ${code.label}`</span>, <span class=\"kw\">async</span> ({ page }) => {\n    <span class=\"cm\">// navigate to checkout, fill postal code with code.value</span>\n    <span class=\"cm\">// assert the expected outcome for this case</span>\n  });\n}",
+    "reflection": "\"Before today, I thought writing many similar test cases meant [X].\nToday, I noticed that the array + loop pattern [Y].\nThat makes me feel [Z] about extending test coverage in the future.\nTomorrow, I will [W].\"",
+    "further": [
+      {
+        "tag": "Article",
+        "text": "Playwright \u2014 Parameterize tests",
+        "url": "https://playwright.dev/docs/test-parameterize"
+      }
+    ],
+    "stretch": "Take your Day 6 negative login tests (locked out, wrong password, empty fields) and rebuild them using this same data-driven array + loop pattern. Compare line count before and after. I guarantee it's shorter \u2014 and easier to extend with a fifth username case later.",
+    "teaser": "Every assertion you've written so far checks one specific thing. Tomorrow I show you how to choose assertions that actually catch bugs instead of just technically passing.",
+    "dayStart": 17,
+    "dayEnd": 17,
+    "isStage": false,
+    "isFinalDay": false,
+    "codeRaw": "const postalCodes = [\n  { value: '', label: 'empty' },\n  { value: '1', label: 'single character' },\n  { value: '6'.repeat(50), label: 'fifty characters' },\n  { value: '600001', label: 'normal value' }\n];\n\nfor (const code of postalCodes) {\n  test(`postal code: ${code.label}`, async ({ page }) => {\n    // navigate to checkout, fill postal code with code.value\n    // assert the expected outcome for this case\n  });\n}"
+  },
+  {
+    "day": 18,
+    "district": 3,
+    "districtName": "Test Like a Pro",
+    "title": "Weak Assertions Lie to You",
+    "isSunday": false,
+    "idea": "Not all assertions are equally useful. Consider these two:\n\nawait expect(page.locator('.error')).toBeVisible();\nawait expect(page.locator('.error')).toContainText('Username is required');\n\nThe first only checks that SOME error showed up. The second checks that the RIGHT error showed up. I've seen tests pass the first version while displaying the completely wrong error message \u2014 a real bug the test was structurally incapable of catching, because it never looked closely enough.\n\nI call this a weak assertion: technically true, practically useless. A strong assertion checks the specific, meaningful detail that would actually indicate something is wrong.",
+    "why": "I've audited test suites that were 90% weak assertions \u2014 toBeVisible() everywhere, almost no toContainText() or toHaveValue() checking actual content. Those suites gave teams false confidence. Tests were green, demos went fine, and real bugs slipped past because the tests were only checking that \"something\" rendered, not that the right thing rendered. Writing strong assertions is judgment, not syntax \u2014 and it's exactly what separates tests that catch bugs from tests that just look busy.",
+    "build": {
+      "tool": "VS Code",
+      "steps": [
+        "Open your day6-login-negative.spec.js (or its Day 17 data-driven rebuild). Audit every assertion in the file.",
+        "For each one, ask: if the wrong thing happened here, would this assertion actually catch it? Rewrite any weak assertions (toBeVisible() alone) into strong ones (toContainText() with the specific expected message, or toHaveValue() with the exact expected value).",
+        "Create: tests/day18-strong-assertions.spec.js with at least three rewritten assertions, and a one-line comment above each explaining what weak version it replaced and why the new one is stronger."
+      ]
+    },
+    "reflection": "\"Before today, I thought all passing assertions were equally trustworthy. Today, I noticed that auditing my own tests for weak assertions revealed [Y]. That makes me feel [Z] about the tests I wrote in Districts 1 and 2. Tomorrow, I will [W].\"",
+    "further": [
+      {
+        "tag": "Article",
+        "text": "Playwright \u2014 Assertions (the full list of available matchers, worth skimming once)",
+        "url": "https://playwright.dev/docs/test-assertions"
+      }
+    ],
+    "stretch": "Find one assertion anywhere in your codebase that checks a URL with toHaveURL() but nothing else. Add a second, content-level assertion right after it \u2014 something that confirms the page didn't just navigate, but actually loaded the right content. Two assertions, two different failure modes covered.",
+    "teaser": "You've tested forms and buttons. Tomorrow you test something that doesn't behave the same way twice \u2014 and you'll meet your first real flaky test.",
+    "dayStart": 18,
+    "dayEnd": 18,
+    "isStage": false,
+    "isFinalDay": false
+  },
+  {
+    "day": 19,
+    "district": 3,
+    "districtName": "Test Like a Pro",
+    "title": "Flaky Tests and How to Stop Fearing Them",
+    "isSunday": false,
+    "idea": "A flaky test passes sometimes and fails other times, with no change to the code being tested. It's not a bug in the app \u2014 it's a bug in the test. Today you meet one on purpose.\n\nSauce Demo's performance_glitch_user (from Day 6's Stretch) loads slowly and unpredictably. Write a test against it with a short, tight timeout, and watch it fail intermittently. That instability is exactly what \"flaky\" means.\n\nThe fix usually isn't \"add more waits everywhere.\" It's understanding WHY the test is unreliable: is it racing the page load? Asserting before an animation finishes? Depending on test execution order? Each cause has a different fix.",
+    "why": "Flaky tests are the single biggest reason teams stop trusting their automation suite. I've watched entire teams start ignoring failing tests \u2014 \"oh that one's just flaky, ignore it\" \u2014 until a real failure gets ignored along with the noise. A TAE who can diagnose and fix flakiness is worth more to a team than one who can only write new tests, because flakiness left unfixed eventually poisons the whole suite's credibility.",
+    "build": {
+      "tool": "VS Code",
+      "steps": [
+        "Create: tests/day19-flaky-glitch-user.spec.js",
+        "Write a test logging in as performance_glitch_user with an artificially short timeout: page.goto(url, { timeout: 2000 })",
+        "Run it 5 times in a row: npx playwright test day19-flaky-glitch-user.spec.js --repeat-each=5",
+        "Document the pass/fail pattern. Then fix it properly \u2014 not by blindly increasing the timeout to something huge, but by using Playwright's auto-wait correctly: assert on the inventory page element appearing, rather than racing a fixed clock."
+      ]
+    },
+    "reflection": "\"Before today, I thought flaky tests were [X].\nToday, I noticed that running the same test 5 times revealed [Y].\nThat makes me feel [Z] about trusting a single test run as proof something works.\nTomorrow, I will [W].\"",
+    "further": [
+      {
+        "tag": "Article",
+        "text": "Playwright \u2014 Test retries and auto-waiting",
+        "url": "https://playwright.dev/docs/test-retries"
+      }
+    ],
+    "stretch": "Search your own codebase for any hardcoded page.waitForTimeout() calls \u2014 fixed-duration waits. Replace each one with a proper Playwright auto-wait (waiting for a specific element or condition instead of a fixed number of milliseconds). Explain in your reflection why this is more reliable, not just shorter.",
+    "teaser": "You now know how to find good test cases, write strong assertions, and diagnose instability. Tomorrow you put it all together and design \u2014 not just write \u2014 a test plan for a feature you've never tested before.",
+    "dayStart": 19,
+    "dayEnd": 19,
+    "isStage": false,
+    "isFinalDay": false
+  },
+  {
+    "day": 20,
+    "district": 3,
+    "districtName": "Test Like a Pro",
+    "title": "Design Before You Code",
+    "isSunday": false,
+    "idea": "No new technique today. Today you use everything from this district on a feature of Sauce Demo you haven't deliberately tested yet: the sort dropdown on the inventory page (Name A-Z, Z-A, Price Low-High, High-Low).\n\nBefore writing a single line of code, write a test PLAN first \u2014 on paper or in your notes. List every case you'd want covered: each sort option works correctly, the default sort on page load, sorting after adding items to cart, sorting with only one product visible (if you can simulate it), boundary thinking applied to a dropdown instead of a text field.\n\nThis is the actual job. Code comes second. Thinking comes first.",
+    "why": "I've watched engineers open VS Code before they've decided what they're testing, and end up with three overlapping tests that all check the same thing while missing an obvious gap. Five minutes of planning on paper saves thirty minutes of rewriting code later. This is the habit that separates people who automate fast from people who automate well \u2014 and ideally, you want both, but if you can only have one starting out, choose well.",
+    "build": {
+      "tool": "Notebook first, then VS Code",
+      "steps": [
+        "Step 1 \u2014 Write your test plan for the sort dropdown. Minimum 5 distinct test cases, each with a one-line description of what it verifies and why it matters.",
+        "Step 2 \u2014 Implement at least 3 of those 5 cases as real Playwright tests in tests/day20-sort-dropdown.spec.js, using data-driven patterns (Day 17) and strong assertions (Day 18) where they fit naturally.",
+        "Step 3 \u2014 Run them. Confirm they pass against the real behavior of the dropdown."
+      ]
+    },
+    "reflection": "\"Before today, I thought planning tests before coding them was [X]. Today, I noticed that writing the plan first changed [Y] about how I approached the sort dropdown. That makes me feel [Z]. Tomorrow, I will [W].\"",
+    "further": [
+      {
+        "tag": "Article",
+        "text": "Search \"test case design techniques\" \u2014 any QA blog covering equivalence partitioning alongside boundary value analysis (you've now used both, even if you didn't know the second name).",
+        "url": null
+      }
+    ],
+    "stretch": "Implement your remaining 2 test cases from the plan. Then look back at the full file: does it read like a coherent test strategy for the sort feature, or like a loose pile of individual checks? If it's the latter, what would you reorder or rename to make the intent clearer to someone reading it cold?",
+    "teaser": "Three districts down. Tomorrow, no code \u2014 just an honest look at whether you're starting to think like the engineer you're becoming, not just type like one.",
+    "dayStart": 20,
+    "dayEnd": 20,
+    "isStage": false,
+    "isFinalDay": false
+  },
+  {
+    "day": 21,
+    "district": 3,
+    "districtName": "Test Like a Pro",
+    "title": "Connecting the Dots",
+    "isSunday": true,
+    "recap": "Look back at your six reflections this week. Then write on:\n\n\u2013 Day 15 you found bugs with nothing but curiosity. Day 20 you designed a structured test plan before writing code. What changed about how you approach a feature you've never seen?\n\n\u2013 Boundary values, data-driven tests, strong assertions, flaky test diagnosis \u2014 which of these four do you reach for instinctively now, and which still feels like a checklist you have to consciously remember?\n\n\u2013 Think back to your very first test from Day 4. If you reviewed it today with this week's judgment, what would you flag?\n\n\u2013 What's the difference, in your own words, between \"I can write a Playwright test\" and \"I can test a feature\"?\n\nNo minimum word count. Write what's true.",
+    "community": "Post your Day 20 test plan \u2014 the written plan, not just the code. I want to see how people are thinking before they automate, not just what they shipped. This is the most useful thing you can share with each other this week.",
+    "rest": "This district asked more of your judgment than your typing. That kind of thinking is genuinely tiring in a different way than syntax practice.\n\nLet it settle.",
+    "teaser": "District 4 starts Monday. You've been testing the same Sauce Demo journey by hand, one script at a time. I'm about to show you how real teams make automation run itself \u2014 without you sitting there watching it.",
+    "dayStart": 21,
+    "dayEnd": 21,
+    "isStage": false,
+    "isFinalDay": false
+  },
+  {
+    "day": 22,
+    "district": 4,
+    "districtName": "Systems",
+    "title": "You've Been Automating Tests. Not a Test Suite.",
+    "isSunday": false,
+    "idea": "Open your tests folder right now. Count the files. You probably have somewhere between 8 and 12 .spec.js files, named after the day you wrote them \u2014 day4-login, day9-login-function, day17-data-driven-postal. That naming made sense while you were learning. It makes zero sense to a teammate who joins next month and has no idea what \"day17\" means.\n\nA test suite isn't just \"all your test files in one folder.\" It's an organized collection where the structure itself tells you something \u2014 which tests cover which feature, which ones run fast versus slow, which ones are safe to skip when you're in a hurry. Today you stop organizing by \"when I wrote it\" and start organizing by \"what it tests.\"",
+    "why": "I've onboarded onto codebases with 300 test files named test1.spec.js through test300.spec.js. Finding the test that covers checkout took longer than just rewriting it from scratch. A test suite that only the original author can navigate isn't really automation \u2014 it's a liability with a green checkmark on it. The way you organize your tests is part of the deliverable, not an afterthought.",
+    "build": {
+      "tool": "VS Code, your existing tests folder",
+      "steps": [
+        "Create three new folders inside tests/: auth/, inventory/, checkout/.",
+        "Go through every file you've written since Day 4 and move it into the folder matching what it actually tests \u2014 login and negative-login tests go in auth/, product-listing and sort-dropdown tests go in inventory/, the full-journey and data-driven-postal tests go in checkout/.",
+        "Rename each file to describe its content instead of its day: day4-login.spec.js becomes auth/login.spec.js.",
+        "Run npx playwright test after the move and confirm everything still passes \u2014 Playwright finds tests recursively, so this reorganization shouldn't break anything."
+      ]
+    },
+    "reflection": "\"Before today, I thought my test files were [X].\nToday, I noticed that reorganizing by feature instead of by day made my tests folder [Y].\nThat makes me feel [Z] about how I'll structure new tests from now on.\nTomorrow, I will [W].\"",
+    "further": [
+      {
+        "tag": "Article",
+        "text": "Playwright \u2014 Test configuration (covers how Playwright discovers and organizes test files)",
+        "url": "https://playwright.dev/docs/test-configuration"
+      }
+    ],
+    "stretch": "Open playwright.config.js. Find the testDir setting. Read what it controls. Then look at the testMatch or testIgnore options in the docs \u2014 could you exclude a folder from a normal test run without deleting it? Why might that be useful for a folder of slow or experimental tests?",
+    "teaser": "Your folders are organized now. Tomorrow you learn the command that lets you run just ONE of those folders \u2014 because nobody runs the entire suite every single time, and you shouldn't either.",
+    "dayStart": 22,
+    "dayEnd": 22,
+    "isStage": false,
+    "isFinalDay": false
+  },
+  {
+    "day": 23,
+    "district": 4,
+    "districtName": "Systems",
+    "title": "Run What You Need, Not Everything",
+    "isSunday": false,
+    "idea": "If you're only changing the checkout flow today, why wait for your auth tests to run too? Playwright lets you target exactly what you need:\n\nnpx playwright test tests/checkout \u2014 runs only the checkout folder\nnpx playwright test --grep \"postal code\" \u2014 runs only tests whose name contains \"postal code\"\nnpx playwright test tests/auth/login.spec.js \u2014 runs one specific file\n\nThis isn't a shortcut for lazy people. It's how every experienced engineer actually works day to day \u2014 full suite runs are for CI and final checks, not for the 50 times a day you're iterating on one feature.",
+    "why": "I've watched junior engineers run the entire suite \u2014 sometimes 8 or 10 minutes \u2014 just to check if one assertion they changed now passes. That's 10 minutes of waiting, dozens of times a day, that should have been 10 seconds. Knowing how to scope a test run isn't a nice-to-have skill. It's the difference between a productive day and a day spent staring at a progress bar.",
+    "build": {
+      "tool": "Terminal + your reorganized tests folder",
+      "steps": [
+        "Run each of these and note how many tests executed and how long each took: npx playwright test tests/auth, npx playwright test tests/inventory, npx playwright test tests/checkout",
+        "Also run: npx playwright test --grep \"boundary\" and npx playwright test --grep \"locked out\"",
+        "Add a one-line comment at the top of your three messiest or slowest test files explaining, in your own words, what that file covers \u2014 the kind of comment that saves a teammate from opening the file just to find out."
+      ]
+    },
+    "reflection": "\"Before today, I thought running my whole test suite every time was [X]. Today, I noticed that scoping test runs with --grep and folder paths made my workflow [Y]. That makes me feel [Z] about how I'll work day to day in a real job. Tomorrow, I will [W].\"",
+    "further": [
+      {
+        "tag": "Article",
+        "text": "Playwright \u2014 Command line (the full list of run options, including --grep, --headed, --debug, and more)",
+        "url": "https://playwright.dev/docs/test-cli"
+      }
+    ],
+    "stretch": "Open package.json. Add a \"scripts\" entry like: \"test:auth\": \"playwright test tests/auth\". Now you can run npm run test:auth instead of typing the full path every time. Add similar shortcuts for inventory and checkout. This is exactly what real teams do to make common commands fast to reach for.",
+    "teaser": "You've been running tests on your own machine this whole time. Tomorrow your tests run somewhere you've never even logged into \u2014 and you don't have to be there when it happens.",
+    "dayStart": 23,
+    "dayEnd": 23,
+    "isStage": false,
+    "isFinalDay": false
+  },
+  {
+    "day": 24,
+    "district": 4,
+    "districtName": "Systems",
+    "title": "Your First Test Run Without You",
+    "isSunday": false,
+    "idea": "Every test you've run so far has run because you typed a command on your laptop. Today, your tests run on a machine owned by GitHub, triggered by you pushing code \u2014 not by you running anything.\n\nThis is GitHub Actions: a system that watches your repository and runs commands automatically when something happens, like a push. When you ran npm init playwright@latest back on Day 3, it already generated a basic GitHub Actions config for you \u2014 you just haven't used it yet. It lives at .github/workflows/playwright.yml.\n\nThink of it like this: you've been the only person who could \"press play\" on your tests. Today you hire a robot that presses play automatically, every time code changes \u2014 and reports back whether things still work, whether you're awake to ask or not.",
+    "why": "This is the single feature that turns \"I wrote some automated tests\" into \"I built a safety net for the team.\" A test suite that only runs when someone remembers to run it manually gets skipped under deadline pressure \u2014 I've watched it happen constantly. A test suite that runs automatically on every push catches problems whether anyone remembers to check or not. This is what \"CI\" \u2014 continuous integration \u2014 actually means in practice, not just as a buzzword on your resume.",
+    "build": {
+      "tool": "GitHub account, Git, VS Code",
+      "steps": [
+        "If you haven't already, create a GitHub account and push your automate-with-intent project to a new repository (search \"git push existing project to new github repo\" if you need the exact commands).",
+        "Once pushed, open .github/workflows/playwright.yml in VS Code. Read through it line by line \u2014 you'll recognize on: push as \"when does this run,\" and the steps as roughly the same setup you did manually on Day 3.",
+        "Push a small change (even just a comment) to trigger it. Go to your repository on GitHub.com, click the \"Actions\" tab, and watch your tests run on a machine you've never logged into."
+      ]
+    },
+    "reflection": "\"Before today, I thought CI/CD was [X].\nToday, I noticed that watching my tests run on GitHub's servers, without me typing any command, made me feel [Y].\nThat makes me feel [Z] about what 'automation' actually means.\nTomorrow, I will [W].\"",
+    "further": [
+      {
+        "tag": "Article",
+        "text": "GitHub Actions \u2014 Understanding GitHub Actions",
+        "url": "https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions"
+      }
+    ],
+    "stretch": "In the Actions tab, click into your test run and find the HTML report artifact. Download it and open it locally \u2014 same report format you've seen all cohort, except this one was generated by a server, not your laptop. That's the proof: the exact same tests, running in a place you don't control, behaving the same way they do for you.",
+    "teaser": "Right now your tests only run when you push code. Tomorrow I show you how to make them run automatically every single day \u2014 even on days you don't touch your laptop.",
+    "dayStart": 24,
+    "dayEnd": 24,
+    "isStage": false,
+    "isFinalDay": false
+  },
+  {
+    "day": 25,
+    "district": 4,
+    "districtName": "Systems",
+    "title": "Tests That Run While You Sleep",
+    "isSunday": false,
+    "idea": "Your tests currently run \"on push\" \u2014 only when code changes. But Sauce Demo itself could change independently of your code \u2014 a deployment on their end could break your selectors with zero commits from you. A scheduled run catches that.\n\nGitHub Actions supports cron schedules \u2014 the same scheduling syntax used by servers for decades:\n\non:\n  schedule:\n    - cron: '0 6 * * *'\n\nThat line means \"run at 6:00 AM UTC, every day.\" Five fields, each one a unit of time: minute, hour, day-of-month, month, day-of-week. An asterisk means \"every.\"",
+    "why": "I run scheduled test suites for exactly this reason: production environments change even when your test code doesn't. A scheduled run is how you find out a third-party API changed, a certificate expired, or a deployment elsewhere broke something \u2014 before a customer finds out for you. This is the difference between automation that reacts to your work and automation that watches the world independently of you.",
+    "build": {
+      "tool": "VS Code, your .github/workflows/playwright.yml",
+      "steps": [
+        "Add a schedule trigger alongside your existing push trigger, plus workflow_dispatch so you can trigger it manually for testing.",
+        "You won't see the scheduled run immediately \u2014 GitHub schedules can take up to an hour to trigger for the first time, and won't run at all if your repo's been inactive for 60+ days.",
+        "Instead, verify your YAML syntax is valid using GitHub's workflow editor (it flags syntax errors in red before you commit), and manually trigger a run via the Actions tab's \"Run workflow\" button."
+      ]
+    },
+    "code": "on:\n  push:\n    branches: [main]\n  schedule:\n    - cron: <span class=\"str\">'0 6 * * *'</span>\n  workflow_dispatch:",
+    "reflection": "\"Before today, I thought scheduling automated tasks was [X].\nToday, I noticed that writing a cron schedule for my tests made me realize [Y].\nThat makes me feel [Z] about the difference between automation that reacts to changes and automation that runs independently.\nTomorrow, I will [W].\"",
+    "further": [
+      {
+        "tag": "Article",
+        "text": "GitHub Actions \u2014 Events that trigger workflows (covers schedule, workflow_dispatch, and other triggers)",
+        "url": "https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows"
+      },
+      {
+        "tag": "Tool",
+        "text": "crontab.guru \u2014 paste any cron expression and see it translated into plain English. Use this constantly; nobody memorizes cron syntax.",
+        "url": "https://crontab.guru"
+      }
+    ],
+    "stretch": "Using crontab.guru, write a cron expression for \"every weekday at 9 AM UTC\" (not weekends). Add it as a second schedule entry. Why might you want weekday-only runs instead of every single day for a test suite tied to a work team's release cadence? Write your reasoning in your reflection.",
+    "teaser": "Your tests run automatically now. But if one fails at 6 AM and nobody's looking at the Actions tab, did it really get caught? Tomorrow you make failures impossible to miss.",
+    "dayStart": 25,
+    "dayEnd": 25,
+    "isStage": false,
+    "isFinalDay": false,
+    "codeRaw": "on:\n  push:\n    branches: [main]\n  schedule:\n    - cron: '0 6 * * *'\n  workflow_dispatch:"
+  },
+  {
+    "day": 26,
+    "district": 4,
+    "districtName": "Systems",
+    "title": "Make Failure Impossible to Ignore",
+    "isSunday": false,
+    "idea": "A test that fails silently in a CI log nobody reads might as well not exist. The HTML report Playwright generates is excellent \u2014 but only if someone opens it. Today you make sure failure gets noticed without anyone needing to go looking.\n\nGitHub Actions can upload your HTML report as a downloadable artifact automatically, and \u2014 more usefully \u2014 you can configure your workflow to fail loudly (a red X on your repo, visible from the main GitHub page) the moment any test breaks.\n\nYou already have failure visibility through the red X. Today's job is making sure the report itself survives long enough for someone to actually look at it, and that the workflow doesn't quietly swallow a failure.",
+    "why": "I've seen CI pipelines configured so a failing test still showed a green checkmark \u2014 because of a misconfigured continue-on-error flag someone added \"temporarily\" eight months earlier. The whole point of automation is trustworthy signal. A red X that doesn't mean \"something's actually broken\" is worse than no automation at all, because it trains people to stop trusting the signal entirely.",
+    "build": {
+      "tool": "VS Code, your .github/workflows/playwright.yml",
+      "steps": [
+        "Find the actions/upload-artifact step in the Playwright-generated workflow and confirm it has if: always() set \u2014 meaning \"run this step regardless of whether previous steps passed or failed.\"",
+        "Without if: always(), your report won't upload on a failed run \u2014 exactly when you'd want it most.",
+        "Push a deliberately broken test (change a selector to something that doesn't exist) to confirm: the Actions tab shows a red X, and the report artifact is still downloadable showing you exactly what failed and why.",
+        "Then revert your broken change."
+      ]
+    },
+    "reflection": "\"Before today, I thought a failing CI run was [X].\nToday, I noticed that confirming if: always() actually worked made me realize [Y] about CI configurations I'll inherit in a real job.\nThat makes me feel [Z]. Tomorrow, I will [W].\"",
+    "further": [
+      {
+        "tag": "Article",
+        "text": "GitHub Actions \u2014 Storing workflow data as artifacts",
+        "url": "https://docs.github.com/en/actions/using-workflows/storing-workflow-data-as-artifacts"
+      }
+    ],
+    "stretch": "Look up GitHub Actions' built-in notification settings (under your GitHub profile \u2192 Settings \u2192 Notifications) and confirm you'd be emailed on a failed workflow run. In a real team, this is often routed to Slack instead \u2014 search \"GitHub Actions Slack notification\" to see how teams wire failures into a channel instead of an inbox nobody checks.",
+    "teaser": "You've built a system that runs itself and reports honestly. Tomorrow you connect every piece from this week into one finished pipeline, end to end.",
+    "dayStart": 26,
+    "dayEnd": 26,
+    "isStage": false,
+    "isFinalDay": false
+  },
+  {
+    "day": 27,
+    "district": 4,
+    "districtName": "Systems",
+    "title": "The Full Pipeline",
+    "isSunday": false,
+    "idea": "No new concept today. Today you confirm every piece from this district works together as one coherent system, not five separate exercises:\n\n\u2013 Tests organized by feature (Day 22)\n\u2013 Scoped runs available locally for fast iteration (Day 23)\n\u2013 Automatic execution on every push (Day 24)\n\u2013 Scheduled execution independent of code changes (Day 25)\n\u2013 Honest failure reporting that survives a broken run (Day 26)\n\nThis is what \"I set up CI for our test suite\" actually means when a job description asks for it. Not one of these five things. All five, working together.",
+    "why": "This is the exact deliverable I'd expect from a TAE three months into their first role. Not flashy. Not the kind of thing that demos well in five minutes. But it's the infrastructure every test suite needs to be trustworthy long after the person who built it has moved to a different project \u2014 including, possibly, you moving to a different feature six months from now and needing your past self's system to still make sense.",
+    "build": {
+      "tool": "VS Code, GitHub",
+      "steps": [
+        "Write a short README.md at the root of your project covering: what this project is (one sentence), how to run tests locally (the commands from Day 23), folder structure (auth/, inventory/, checkout/, and what each covers), and how CI works (when it runs, where to find results).",
+        "Do a final, full run: npx playwright test from a clean pull of your repo (delete node_modules and reinstall if you want to be thorough), confirming everything still passes from scratch \u2014 not just on your already-configured machine."
+      ]
+    },
+    "reflection": "\"Before today, I thought a finished automation project meant [X]. Today, I noticed that writing the README forced me to [Y] about my own project that I hadn't fully thought through before. That makes me feel [Z]. Tomorrow, I will [W].\"",
+    "further": [
+      {
+        "tag": "Article",
+        "text": "Search \"how to write a good README for a code project\" \u2014 any solid guide on README structure and clarity.",
+        "url": null
+      }
+    ],
+    "stretch": "Add a status badge to the top of your README \u2014 GitHub generates these automatically for any workflow, showing a live \"passing\" or \"failing\" indicator. Search \"GitHub Actions status badge markdown\" for the exact syntax. This is a small detail, but it's the kind of polish that signals real engineering discipline in a portfolio project.",
+    "teaser": "Four districts down. Tomorrow, no code \u2014 just an honest look at whether \"automation\" means something different to you now than it did a month ago.",
+    "dayStart": 27,
+    "dayEnd": 27,
+    "isStage": false,
+    "isFinalDay": false
+  },
+  {
+    "day": 28,
+    "district": 4,
+    "districtName": "Systems",
+    "title": "Connecting the Dots",
+    "isSunday": true,
+    "recap": "Look back at your six reflections this week. Then write on:\n\n\u2013 Day 22 you reorganized files you'd already written. Day 24 you watched them run on a machine you've never logged into. What does that shift mean to you, practically?\n\n\u2013 Of everything this week \u2014 folder structure, scoped runs, CI triggers, scheduling, failure reporting \u2014 which piece would you be most confident explaining to an interviewer? Which one would you want to practice explaining again?\n\n\u2013 You've now completed a full month of this cohort. Pull up your Day 1 manual test case one more time. What's the honest distance between that and what you built this week?\n\n\u2013 What does \"automation\" mean to you now, in one sentence, that's different from what it meant on Day 1?\n\nNo minimum word count. Write what's true.",
+    "community": "Share your GitHub Actions tab \u2014 a screenshot of a green checkmark from a run that happened without you manually triggering it. This is genuinely one of the best feelings in this entire cohort, and the community should see it.",
+    "rest": "This district was the least glamorous and, I'd argue, the most valuable so far. Configuration work doesn't feel like \"real progress\" the way writing a new test does. It is real progress.\n\nRest knowing that.",
+    "teaser": "District 5 starts Monday. You've been testing a feature once you already know how to use. Next week I hand you something you've never seen before \u2014 and you'll plan a real test strategy from scratch, the way you'll actually have to on day one of a new job.",
+    "dayStart": 28,
+    "dayEnd": 28,
+    "isStage": false,
+    "isFinalDay": false
+  },
+  {
+    "day": 29,
+    "district": 5,
+    "districtName": "Planning",
+    "title": "The First 30 Minutes on Any New Feature",
+    "isSunday": false,
+    "idea": "Every TAE job starts the same way: someone hands you a feature you didn't build, with documentation that's incomplete or outdated, and an expectation that you'll have a test plan soon. The instinct to panic is normal. The skill is having a repeatable first move regardless of what the feature is.\n\nHere's mine, the same one I've used for fifteen years on features I've never seen:\n\n1. Use it like a real user first. No notes, no test-case thinking \u2014 just experience it.\n2. Use it again, this time writing down every screen, every state change, every place data gets entered or displayed.\n3. List every \"what if\" you can think of in five minutes, no filtering yet.\n4. THEN start organizing into a test plan.\n\nNotice: step 4 is last. Most people skip straight to writing test cases and miss half the feature because they never actually explored it first.",
+    "why": "I've interviewed candidates who could write flawless Playwright syntax but froze completely when I said \"here's a feature you've never seen, walk me through how you'd test it.\" That's not a coding question \u2014 it's a confidence and process question. Having a repeatable first move means you're never starting from zero, even when the feature is.",
+    "build": {
+      "tool": "Notebook + saucedemo.com",
+      "steps": [
+        "You've used Sauce Demo's login, inventory, and checkout flow constantly this cohort. Today, ignore all of that.",
+        "Go to the hamburger menu (top-left, the three lines icon) \u2014 you've probably never opened it.",
+        "Apply the four-step process above to it: All Items, About, Logout, Reset App State.",
+        "Spend the full 30 minutes. Resist the urge to start writing Playwright code today \u2014 that's deliberately not today's task."
+      ]
+    },
+    "reflection": "\"Before today, I thought exploring an unfamiliar feature meant [X].\nToday, I noticed that following the four-step process on the menu revealed [Y].\nThat makes me feel [Z] about features I'll be handed in a real job with zero context.\nTomorrow, I will [W].\"",
+    "further": [
+      {
+        "tag": "Article",
+        "text": "Search \"exploratory testing charters\" \u2014 a structured approach to time-boxed exploration used by professional testers.",
+        "url": null
+      }
+    ],
+    "stretch": "Click \"Reset App State\" after adding items to your cart, then investigate exactly what it resets and what it doesn't. Does it log you out? Does it clear the cart badge but leave items findable elsewhere? Document the precise boundary of what \"reset\" actually means in this feature.",
+    "teaser": "You explored the menu today with no time pressure. Tomorrow I give you a feature AND a deadline \u2014 because real test planning rarely happens with unlimited time.",
+    "dayStart": 29,
+    "dayEnd": 29,
+    "isStage": false,
+    "isFinalDay": false
+  },
+  {
+    "day": 30,
+    "district": 5,
+    "districtName": "Planning",
+    "title": "Planning Under a Deadline",
+    "isSunday": false,
+    "idea": "In a real sprint, you rarely get unlimited time to plan tests. You get a feature, a release date, and maybe two hours before you need to start automating. The skill isn't just \"can you design a thorough test plan\" \u2014 it's \"can you design a useful one fast, and know what you deliberately chose to leave out.\"\n\nToday's constraint: 45 minutes total, start to finish, for the product detail page (click any product name or image on the inventory page \u2014 most people testing Sauce Demo never look closely at this page).",
+    "why": "I've watched engineers spend three hours achieving the \"perfect\" test plan for a feature shipping in two. That's not thoroughness \u2014 it's a failure to prioritize under real constraints. The job almost always rewards a good plan delivered on time over a perfect plan delivered late. Today you practice the harder skill: cutting scope deliberately and explaining why.",
+    "build": {
+      "tool": "Notebook + timer + saucedemo.com",
+      "steps": [
+        "Set a 45-minute timer. Apply yesterday's four-step process to the product detail page, but compressed:",
+        "Explore (10 min): use the page like a real user.",
+        "List \"what ifs\" (10 min): every scenario you can think of, no filtering.",
+        "Write your test plan (15 min): organize into real test cases.",
+        "Write a \"NOT testing this round, because...\" section (10 min) \u2014 listing what you're deliberately cutting and why. This last section is the actual point of today."
+      ]
+    },
+    "reflection": "\"Before today, I thought test planning under time pressure was [X]. Today, I noticed that the 45-minute constraint changed [Y] about what I chose to prioritize. That makes me feel [Z] about my own instinct to over-plan or under-plan. Tomorrow, I will [W].\"",
+    "further": [
+      {
+        "tag": "Article",
+        "text": "Search \"risk-based testing prioritization\" \u2014 covers how teams decide what's worth testing first when time is short.",
+        "url": null
+      }
+    ],
+    "stretch": "Take your \"NOT testing this round\" list and imagine a stakeholder asks you to defend one cut, live, in a stand-up meeting. Write out exactly what you'd say in two sentences. This is a real conversation you'll have in your first TAE job \u2014 practicing the words now costs nothing.",
+    "teaser": "You've planned for a feature inside one page. Tomorrow you plan for something that spans multiple pages and depends on what happened before it \u2014 and that changes everything about how you think.",
+    "dayStart": 30,
+    "dayEnd": 30,
+    "isStage": false,
+    "isFinalDay": false
+  },
+  {
+    "day": 31,
+    "district": 5,
+    "districtName": "Planning",
+    "title": "Testing Things That Depend on What Came Before",
+    "isSunday": false,
+    "idea": "Every test you've planned so far this district has lived on one page. Real features rarely do. The cart badge depends on what you did on the inventory page. The checkout overview depends on what you entered two screens earlier. These are stateful flows \u2014 the test plan has to account for sequence, not just individual screens.\n\nWhen planning a stateful flow, ask three extra questions you don't need for a single page: What's the minimum path to reach this state? What happens if I arrive here a different way (back button, direct URL, browser refresh)? What carries over if I leave and come back?",
+    "why": "Stateful bugs are some of the nastiest in real products \u2014 \"works fine if you go through the normal flow, breaks if you hit back and resubmit.\" I've shipped bugs exactly like this myself, early in my career, because I only tested the path I expected users to take. Planning for state means planning for the paths you don't expect too.",
+    "build": {
+      "tool": "Notebook + saucedemo.com",
+      "steps": [
+        "Plan (don't code yet) a test strategy for this stateful scenario: a user adds two items to the cart, removes one, navigates to checkout, hits the browser back button, then tries to complete checkout again.",
+        "Apply the three extra questions above.",
+        "Write at least 6 test cases that specifically target what happens to cart state and checkout state across this back-and-forth navigation \u2014 not what happens on a single page in isolation."
+      ]
+    },
+    "reflection": "\"Before today, I thought testing a multi-step flow was the same as testing several individual pages. Today, I noticed that planning around state and navigation history revealed [Y]. That makes me feel [Z] about flows I've already automated this cohort, like checkout. Tomorrow, I will [W].\"",
+    "further": [
+      {
+        "tag": "Article",
+        "text": "Search \"stateful testing web applications\" \u2014 covers the broader concept of testing software where past actions affect current behavior.",
+        "url": null
+      }
+    ],
+    "stretch": "Go back to your Day 13 full-journey checkout test. Does it test the happy path only, or does it account for any state-dependent edge case? Pick one test case from today's plan and actually implement it \u2014 confirm whether Sauce Demo handles the back-button scenario gracefully or not.",
+    "teaser": "You've been planning alone so far. Tomorrow someone else's plan lands on your desk \u2014 and your job is to find what they missed.",
+    "dayStart": 31,
+    "dayEnd": 31,
+    "isStage": false,
+    "isFinalDay": false
+  },
+  {
+    "day": 32,
+    "district": 5,
+    "districtName": "Planning",
+    "title": "Reviewing Someone Else's Test Plan",
+    "isSunday": false,
+    "idea": "In a real team, you'll review test plans almost as often as you write your own. A junior engineer's draft lands in a pull request or a doc, and your job is to spot the gaps before code gets written against a weak plan. This is a different skill from planning \u2014 it's auditing.\n\nBelow is a deliberately incomplete test plan I've written for Sauce Demo's \"Add to cart\" / \"Remove\" toggle button on the inventory page. It's not bad. It's just missing things \u2014 the way most real first-draft plans are.\n\nPLAN: \"Add to Cart\" Button\n1. Click Add to Cart, verify button changes to Remove\n2. Click Remove, verify button changes back to Add to Cart\n3. Verify cart badge count increases by 1 when added",
+    "why": "The candidates I trust most aren't the ones who never miss anything in their own plan \u2014 everyone misses things. They're the ones who can look at someone else's plan and immediately spot what's not there. That instinct \u2014 \"what's missing, not what's wrong\" \u2014 is what makes someone promotable into a role that reviews other people's work.",
+    "build": {
+      "tool": "Notebook",
+      "steps": [
+        "Audit the three-item plan above. Find at minimum 5 gaps.",
+        "For each gap, write one sentence: what's missing, and why it matters. Consider: multiple products at once, cart badge behavior with zero items, page refresh mid-state, what the button looks like for an already-in-cart item viewed from a different page, and anything else your month of Sauce Demo experience surfaces.",
+        "Then rewrite the plan as a complete version \u2014 at least 8 cases \u2014 incorporating everything you found."
+      ]
+    },
+    "reflection": "\"Before today, I thought reviewing someone else's test plan was [X]. Today, I noticed that auditing this three-case plan revealed [Y] gaps I wouldn't have caught a month ago. That makes me feel [Z] about my own test plans from earlier districts. Tomorrow, I will [W].\"",
+    "further": [
+      {
+        "tag": "Article",
+        "text": "Search \"test case review checklist\" \u2014 any QA resource covering what reviewers commonly look for.",
+        "url": null
+      }
+    ],
+    "stretch": "Pick one of your own test plans from Day 20 or Day 31. Hand it \u2014 mentally or for real, if you have a study partner in this cohort \u2014 to the same scrutiny you just applied to mine. What would you flag if it were someone else's work?",
+    "teaser": "You've found gaps in other people's plans. Tomorrow you turn a plan into actual priorities \u2014 because not every gap deserves the same amount of your time.",
+    "dayStart": 32,
+    "dayEnd": 32,
+    "isStage": false,
+    "isFinalDay": false
+  },
+  {
+    "day": 33,
+    "district": 5,
+    "districtName": "Planning",
+    "title": "Not Everything Deserves Equal Attention",
+    "isSunday": false,
+    "idea": "You now have more test cases across this district than you could automate in a single day. That's normal \u2014 and it's also the actual problem real TAEs solve constantly: not \"what could I test\" but \"what should I test first.\"\n\nA simple framework I use: rate every test case on two axes, 1\u20133 each.\n\u2013 Impact: how bad is it if this breaks in production?\n\u2013 Likelihood: how probable is this scenario for a real user?\n\nMultiply them. A 3\u00d73 (high impact, high likelihood \u2014 like checkout failing for a normal purchase) outranks a 1\u00d71 (low impact, rare edge case \u2014 like a malformed postal code nobody would realistically type). This isn't the only prioritization framework that exists, but it's fast, defensible, and good enough for real sprint planning.",
+    "why": "I've watched engineers spend a full day perfecting tests for an edge case that would affect maybe one user a year, while a core happy-path flow sat under-tested. Prioritization isn't about being lazy \u2014 it's about making sure your limited time covers what actually protects the business and the user first.",
+    "build": {
+      "tool": "Notebook (spreadsheet if you prefer, but not required)",
+      "steps": [
+        "Take all the test cases you've generated across Days 29\u201332 \u2014 menu exploration, product detail page, the stateful checkout flow, and your rewritten Add to Cart plan. That should be 20+ cases by now.",
+        "Score each one: Impact (1\u20133) \u00d7 Likelihood (1\u20133) = Priority Score.",
+        "Sort them highest to lowest. Identify your top 5 \u2014 these are what you'd automate first if you only had today."
+      ]
+    },
+    "reflection": "\"Before today, I thought all test cases I write deserve roughly equal priority. Today, I noticed that scoring impact and likelihood across my own test cases revealed [Y]. That makes me feel [Z] about how I would have approached automation ordering before this district. Tomorrow, I will [W].\"",
+    "further": [
+      {
+        "tag": "Article",
+        "text": "Search \"risk-based test prioritization matrix\" \u2014 see how teams formalize the impact x likelihood approach.",
+        "url": null
+      }
+    ],
+    "stretch": "Find one test case in your list that you initially rated as low priority but now suspect you under-scored. Re-score it, explaining in writing what changed your mind. Prioritization isn't static \u2014 it's worth revisiting your own judgment.",
+    "teaser": "You've planned, audited, and prioritized. Tomorrow you finally turn your top 5 into real, running Playwright tests \u2014 and find out if your plan survives contact with actual code.",
+    "dayStart": 33,
+    "dayEnd": 33,
+    "isStage": false,
+    "isFinalDay": false
+  },
+  {
+    "day": 34,
+    "district": 5,
+    "districtName": "Planning",
+    "title": "From Plan to Code",
+    "isSunday": false,
+    "idea": "No new concept today. Today you implement your top 5 prioritized test cases from yesterday as real Playwright tests \u2014 using everything from Districts 2 through 4: variables, functions, strong assertions, data-driven patterns where they fit, and proper file organization in your tests folder.\n\nThis is the moment a plan either survives contact with reality or reveals it was missing something. You may discover a test case sounded clean on paper but the selector doesn't exist, or the behavior isn't what you assumed during planning. That's not failure \u2014 that's exactly why you explore before you plan, and plan before you code.",
+    "why": "A test plan that never gets implemented is just a document. The entire value of everything you did this district proves itself today, when you find out whether your prioritization actually held up once you're staring at real selectors and real page behavior.",
+    "build": {
+      "tool": "VS Code",
+      "steps": [
+        "Create a new folder: tests/menu-and-detail/ (or fold into an existing folder if it fits better \u2014 your call, but be able to explain why).",
+        "Implement your top 5 prioritized test cases from Day 33 as real, passing Playwright tests.",
+        "If a planned case turns out to be untestable as written (the feature doesn't behave the way you assumed), don't force it \u2014 note what you learned and adjust.",
+        "Run the full new file and confirm everything passes."
+      ]
+    },
+    "reflection": "\"Before today, I thought a test plan written on paper would translate directly into code. Today, I noticed that implementing my top 5 cases revealed [Y] \u2014 places where reality didn't match my assumptions. That makes me feel [Z] about how I'll plan next time. Tomorrow, I will [W].\"",
+    "further": [
+      {
+        "tag": "Article",
+        "text": "Playwright \u2014 Best Practices (a good moment to revisit this now that you have real experience to compare it against)",
+        "url": "https://playwright.dev/docs/best-practices"
+      }
+    ],
+    "stretch": "Implement 3 more cases from your full prioritized list (not just the top 5). At this point you should have a meaningfully larger, well-organized test suite covering parts of Sauce Demo most learners in this cohort never touch.",
+    "teaser": "Five districts of work. Tomorrow, no code \u2014 just an honest conversation with yourself about whether you could walk into an unfamiliar codebase next week and actually do this job.",
+    "dayStart": 34,
+    "dayEnd": 34,
+    "isStage": false,
+    "isFinalDay": false
+  },
+  {
+    "day": 35,
+    "district": 5,
+    "districtName": "Planning",
+    "title": "Connecting the Dots",
+    "isSunday": true,
+    "recap": "Look back at your six reflections this week. Then write on:\n\n\u2013 Day 29 you explored a feature with zero time pressure. Day 30 you planned one in 45 minutes flat. What's the honest difference in the quality of thinking between the two, and does that surprise you?\n\n\u2013 Day 32 you found gaps in someone else's plan in minutes. What does that tell you about how thoroughly you should now expect to review your own first drafts?\n\n\u2013 You're now over five weeks into this cohort. If a recruiter asked \"walk me through how you'd test a feature you've never seen,\" could you answer that confidently today? What's still shaky?\n\n\u2013 Pick one moment this week where you genuinely surprised yourself \u2014 caught something, prioritized something, or cut scope on something you wouldn't have a month ago.\n\nNo minimum word count. Write what's true.",
+    "community": "Post your Day 32 gap-finding list \u2014 the 5+ gaps you found in the \"Add to Cart\" plan. Compare notes with others in the community. I guarantee different people caught different gaps, and seeing what you missed that someone else caught is one of the fastest ways to grow this particular instinct.",
+    "rest": "This district had almost no new syntax. It was entirely judgment, prioritization, and confronting the unfamiliar. That's genuinely more tiring than learning a new Playwright method, even though it might not feel like \"real work\" in the moment.\n\nIt is.",
+    "teaser": "District 6 starts Monday. Your test files are organized, but your test CODE still repeats itself constantly. I'm about to show you the pattern every real test suite uses to stop that \u2014 and it's going to make everything you've built so far easier to maintain, not harder.",
+    "dayStart": 35,
+    "dayEnd": 35,
+    "isStage": false,
+    "isFinalDay": false
+  },
+  {
+    "day": 36,
+    "district": 6,
+    "districtName": "Integration",
+    "title": "Feel the Pain First",
+    "isSunday": false,
+    "idea": "No new pattern today. Today I want you to feel a problem before I hand you the solution \u2014 because a pattern you adopt without feeling the pain it solves is just cargo culting.\n\nSauce Demo just changed. (It hasn't, really \u2014 but pretend with me.) The login button's selector changed from #login-button to something else. Go find every single place in your codebase where #login-button appears.\n\nThat number is your problem, made visible. Every one of those locations is a place a real selector change would force you to manually hunt and fix, file by file, hoping you don't miss one.",
+    "why": "I inherited a 200-test suite once where a single button's selector appeared in 47 different files. The team's \"automation expert\" had left. Nobody knew which 47. We found out by running the suite, watching things fail, and playing whack-a-mole for two days. That two days is the actual cost of skipping today's lesson. It's not theoretical.",
+    "build": {
+      "tool": "VS Code's search-across-files (Cmd/Ctrl+Shift+F)",
+      "steps": [
+        "Search your entire tests folder for '#login-button'. Count the results.",
+        "Do the same for '#user-name' and '#password'. Write down the three counts.",
+        "Now imagine: the actual developer changes data-test=\"login-button\" to data-test=\"signin-btn\" tomorrow. Calculate, honestly, how long it would take you to find and fix every occurrence by hand, file by file, without missing one."
+      ]
+    },
+    "reflection": "\"Before today, I thought repeating selectors across test files was [X].\nToday, I noticed that searching for '#login-button' across my own codebase revealed [Y].\nThat makes me feel [Z] about how fragile my test suite actually is right now.\nTomorrow, I will [W].\"",
+    "further": [
+      {
+        "tag": "Article",
+        "text": "Search \"DRY principle software testing\" \u2014 the broader software engineering idea (Don't Repeat Yourself) that today's pain is a specific instance of.",
+        "url": null
+      }
+    ],
+    "stretch": "Pick your single most-duplicated selector. Count exactly how many files it appears in right now. That number is the size of the refactor you're about to do this week \u2014 keep it in mind as a concrete measure of what \"before\" looked like.",
+    "teaser": "You've counted the pain. Tomorrow I show you the pattern that makes that number irrelevant \u2014 because you'll only ever need to change a selector in exactly one place again.",
+    "dayStart": 36,
+    "dayEnd": 36,
+    "isStage": false,
+    "isFinalDay": false
+  },
+  {
+    "day": 37,
+    "district": 6,
+    "districtName": "Integration",
+    "title": "Your First Page Object",
+    "isSunday": false,
+    "idea": "A Page Object is a class that represents one page of your app \u2014 its selectors live inside the class, as properties, and its actions live inside the class, as methods. Your tests stop knowing what a selector even is. They just call methods.\n\nclass LoginPage {\n  constructor(page) {\n    this.page = page;\n    this.usernameInput = page.locator('#user-name');\n    this.passwordInput = page.locator('#password');\n    this.loginButton = page.locator('#login-button');\n  }\n\n  async login(username, password) {\n    await this.page.goto('https://www.saucedemo.com');\n    await this.usernameInput.fill(username);\n    await this.passwordInput.fill(password);\n    await this.loginButton.click();\n  }\n}\n\nNotice: this is your Day 9 login() function, reshaped into a class. You already understood the core idea \u2014 this just gives it a home where selectors live exactly once.",
+    "why": "Remember your Day 36 count? With a Page Object, that number becomes 1. The selector for #login-button exists in exactly one place: inside LoginPage. Every test that needs it goes through loginPage.login(), never touching the selector directly. Change the selector once, every test that uses it is instantly fixed.",
+    "build": {
+      "tool": "VS Code",
+      "steps": [
+        "Create: tests/pages/LoginPage.js (new folder: pages/). Build the LoginPage class above, but extend it: add a getErrorMessage() method that returns the text of the error locator from your Day 6 negative tests.",
+        "Create: tests/day37-pom-login.spec.js \u2014 import LoginPage, instantiate it, and write a test that logs in using loginPage.login() instead of raw selectors.",
+        "Don't forget module.exports = { LoginPage }; at the bottom of LoginPage.js.",
+        "Run the new test and confirm it passes."
+      ]
+    },
+    "code": "<span class=\"kw\">class</span> <span class=\"fn\">LoginPage</span> {\n  <span class=\"fn\">constructor</span>(page) {\n    <span class=\"kw\">this</span>.page = page;\n    <span class=\"kw\">this</span>.usernameInput = page.<span class=\"fn\">locator</span>(<span class=\"str\">'#user-name'</span>);\n    <span class=\"kw\">this</span>.passwordInput = page.<span class=\"fn\">locator</span>(<span class=\"str\">'#password'</span>);\n    <span class=\"kw\">this</span>.loginButton = page.<span class=\"fn\">locator</span>(<span class=\"str\">'#login-button'</span>);\n  }\n\n  <span class=\"kw\">async</span> <span class=\"fn\">login</span>(username, password) {\n    <span class=\"kw\">await this</span>.page.<span class=\"fn\">goto</span>(<span class=\"str\">'https://www.saucedemo.com'</span>);\n    <span class=\"kw\">await this</span>.usernameInput.<span class=\"fn\">fill</span>(username);\n    <span class=\"kw\">await this</span>.passwordInput.<span class=\"fn\">fill</span>(password);\n    <span class=\"kw\">await this</span>.loginButton.<span class=\"fn\">click</span>();\n  }\n}\n\n<span class=\"kw\">module</span>.exports = { LoginPage };",
+    "reflection": "\"Before today, I thought a Page Object was [X].\nToday, I noticed that writing my first LoginPage class made me realize [Y] about my Day 9 login function.\nThat makes me feel [Z] about refactoring the rest of my suite.\nTomorrow, I will [W].\"",
+    "further": [
+      {
+        "tag": "Article",
+        "text": "Playwright \u2014 Page Object Models (the official guide, worth reading closely now that you've built one by hand)",
+        "url": "https://playwright.dev/docs/pom"
+      }
+    ],
+    "stretch": "Add a second method to LoginPage: loginAndExpectError(username, password) that logs in and returns whatever error text appears, or null if login succeeded. Rewrite one of your Day 6 negative tests to use this new method instead of raw selectors.",
+    "teaser": "One Page Object down. Tomorrow you build the rest \u2014 and discover exactly how much shorter your tests get once selectors stop living inside them.",
+    "dayStart": 37,
+    "dayEnd": 37,
+    "isStage": false,
+    "isFinalDay": false,
+    "codeRaw": "class LoginPage {\n  constructor(page) {\n    this.page = page;\n    this.usernameInput = page.locator('#user-name');\n    this.passwordInput = page.locator('#password');\n    this.loginButton = page.locator('#login-button');\n  }\n\n  async login(username, password) {\n    await this.page.goto('https://www.saucedemo.com');\n    await this.usernameInput.fill(username);\n    await this.passwordInput.fill(password);\n    await this.loginButton.click();\n  }\n}\n\nmodule.exports = { LoginPage };"
+  },
+  {
+    "day": 38,
+    "district": 6,
+    "districtName": "Integration",
+    "title": "A Page Object for Every Page",
+    "isSunday": false,
+    "idea": "You've automated three real areas of Sauce Demo this cohort: login, inventory, and checkout. Yesterday you built LoginPage. Today you build InventoryPage and CheckoutPage, following the exact same shape: a constructor with locators, methods with names that describe what a user would actually do.\n\nA good Page Object method name reads like an instruction, not a mechanism: addProductToCart('Sauce Labs Backpack'), not clickAddToCartButton(). Name methods after intent, not implementation \u2014 that's the actual design skill here, not the class syntax.",
+    "why": "This is the moment your test files start reading like a script a non-engineer could follow: loginPage.login(...), then inventoryPage.addProductToCart(...), then checkoutPage.completeCheckout(...). I've handed test files like this to product managers who don't code, and they could follow exactly what was being verified. That readability is not a side effect of POM \u2014 it's one of the main reasons to use it.",
+    "build": {
+      "tool": "VS Code",
+      "steps": [
+        "Create: tests/pages/InventoryPage.js. Methods to include: addProductToCart(productName), getCartBadgeCount(), sortBy(option) \u2014 covering everything you built in Districts 2 and 3's product/sort tests.",
+        "Create: tests/pages/CheckoutPage.js. Methods to include: goToCheckout(), fillCheckoutInfo(firstName, lastName, postalCode), continueCheckout(), getOverviewPageHeading().",
+        "For both, base the method list on tests you've already written \u2014 you're extracting existing behavior into classes, not inventing new functionality."
+      ]
+    },
+    "reflection": "\"Before today, I thought naming things in code was mostly about correctness. Today, I noticed that naming Page Object methods after intent instead of mechanism changed [Y] about how readable my tests became. That makes me feel [Z]. Tomorrow, I will [W].\"",
+    "further": [
+      {
+        "tag": "Article",
+        "text": "Search \"page object model naming conventions\" \u2014 see how different teams approach method naming consistency.",
+        "url": null
+      }
+    ],
+    "stretch": "Look at your three Page Object files side by side. Is there any shared logic \u2014 like a common header or navigation menu present on every page \u2014 that could live in a fourth, shared BasePage class the others extend from? You don't have to build it today, but sketch what it would contain.",
+    "teaser": "You have three Page Objects sitting next to your old tests. Tomorrow you do the real work: rewiring your EXISTING tests to use them, and watching your test files shrink by half.",
+    "dayStart": 38,
+    "dayEnd": 38,
+    "isStage": false,
+    "isFinalDay": false
+  },
+  {
+    "day": 39,
+    "district": 6,
+    "districtName": "Integration",
+    "title": "The Great Refactor",
+    "isSunday": false,
+    "idea": "No new concept today. Today is entirely about rewiring tests you already wrote \u2014 your Day 13 full-journey test, your Day 17 data-driven postal code tests, your Day 18 strong-assertion rewrites \u2014 to use the Page Objects you built this week instead of raw selectors.\n\nThis is the single most valuable refactor in the entire cohort, and it's deliberately not glamorous. Refactoring rarely is. The payoff isn't a new feature \u2014 it's a codebase that will survive contact with a real, changing application.",
+    "why": "I evaluate take-home assignments for TAE candidates regularly. The single biggest differentiator between a junior submission and a strong one isn't more tests \u2014 it's whether the candidate refactored toward POM once the duplication became obvious. Most candidates write working tests and stop. The ones who go back and refactor are showing me they think about maintenance, not just correctness. That's the signal I'm actually looking for.",
+    "build": {
+      "tool": "VS Code",
+      "steps": [
+        "Take your Day 13 full-journey test (login \u2192 add to cart \u2192 checkout) and rewrite it entirely using LoginPage, InventoryPage, and CheckoutPage. Run it. Confirm it still passes with identical behavior.",
+        "Pick at least 3 more existing test files and refactor them the same way. Prioritize your most selector-heavy files first \u2014 the ones where the Day 36 pain was worst.",
+        "After each refactor, run the affected file and confirm nothing broke. Refactoring should never change what a test verifies \u2014 only how it's written."
+      ]
+    },
+    "reflection": "\"Before today, I thought refactoring already-working tests was [X]. Today, I noticed that rewriting my Day 13 journey test using Page Objects made the file [Y]. That makes me feel [Z] about the tests I haven't refactored yet. Tomorrow, I will [W].\"",
+    "further": [
+      {
+        "tag": "Article",
+        "text": "Search \"refactoring legacy test code safely\" \u2014 covers the discipline of changing test structure without changing test behavior.",
+        "url": null
+      }
+    ],
+    "stretch": "Refactor every remaining test file in your entire suite to use Page Objects. By the end of today, no test file in your project should contain a raw CSS selector or data-test attribute \u2014 every single one should live inside a Page Object class.",
+    "teaser": "Your tests are clean now. Tomorrow you go back to your Day 36 number \u2014 and find out exactly how small it got.",
+    "dayStart": 39,
+    "dayEnd": 39,
+    "isStage": false,
+    "isFinalDay": false
+  },
+  {
+    "day": 40,
+    "district": 6,
+    "districtName": "Integration",
+    "title": "Prove It to Yourself",
+    "isSunday": false,
+    "idea": "On Day 36, you counted how many files contained '#login-button'. Today, run that exact same search again.\n\nIf your refactor was done properly, the count should now be 1 \u2014 inside LoginPage.js, and nowhere else. That single number is the entire argument for Page Object Model, proven against your own codebase instead of taken on faith.",
+    "why": "This is the kind of before/after evidence I'd want in a portfolio project, and the kind of story I'd want a candidate to tell in an interview: \"I had a selector duplicated across 9 files. I refactored to Page Object Model. Now it's in exactly one place.\" That's not abstract design theory \u2014 it's a concrete, measurable improvement you made with your own hands, and you can prove it with a search.",
+    "build": {
+      "tool": "VS Code's search-across-files",
+      "steps": [
+        "Re-run your Day 36 searches: '#login-button', '#user-name', '#password'. Record the new counts next to your old ones.",
+        "For any selector that still appears more than once outside a Page Object file, track down why and fix it \u2014 you likely missed a test file during yesterday's refactor.",
+        "Run your entire test suite \u2014 npx playwright test \u2014 and confirm everything still passes, end to end, after a full week of restructuring."
+      ]
+    },
+    "reflection": "\"Before today, I expected the Day 36 numbers to look like [X] after refactoring. Today, I noticed the actual new counts were [Y]. That makes me feel [Z] about the measurable difference between a test suite with and without Page Object Model. Tomorrow, I will [W].\"",
+    "further": [
+      {
+        "tag": "Article",
+        "text": "Playwright \u2014 Locators (revisit this now that your locators live in Page Objects instead of scattered across tests \u2014 notice if anything reads differently to you now)",
+        "url": "https://playwright.dev/docs/locators"
+      }
+    ],
+    "stretch": "Push your refactored suite and let your District 4 CI pipeline run against it. Confirm GitHub Actions reports the same passing result your local run did. Your CI system from last district and your Page Object refactor from this district just met each other for the first time \u2014 and they should work together without any extra effort.",
+    "teaser": "Six districts of separate skills. Tomorrow you build one thing that proves they all work together at once \u2014 a single new feature, planned, page-objected, and CI-verified, start to finish.",
+    "dayStart": 40,
+    "dayEnd": 40,
+    "isStage": false,
+    "isFinalDay": false
+  },
+  {
+    "day": 41,
+    "district": 6,
+    "districtName": "Integration",
+    "title": "One Feature, Every Skill",
+    "isSunday": false,
+    "idea": "No new concept today. Today you build one complete, small feature test end to end, using everything from Districts 1 through 6 in a single coherent piece of work: a test suite for Sauce Demo's \"Sauce Labs Backpack\" product detail page, including its \"Back to products\" navigation.\n\nThis single exercise touches: exploration before planning (District 5), a new ProductDetailPage class (District 6), strong assertions (District 3), data-driven cases if relevant (District 3), proper file organization (District 4), and a passing CI run to prove it (District 4).",
+    "why": "This is the closest thing to a real first-week task at an actual job: a self-contained feature, no hand-holding, judged on whether the finished result reflects everything you claim to know. I'm not teaching anything new today because there's nothing left to teach for this scope \u2014 today is entirely about proving integration, not acquiring a new skill.",
+    "build": {
+      "tool": "VS Code, GitHub",
+      "steps": [
+        "Step 1 \u2014 Spend 15 minutes exploring the product detail page like Day 29 taught you. Note what's there: product image, description, price, Add to Cart, Back to products.",
+        "Step 2 \u2014 Build tests/pages/ProductDetailPage.js with appropriate locators and methods.",
+        "Step 3 \u2014 Write tests/product-detail.spec.js covering at minimum: viewing the page shows correct product info, adding to cart from this page updates the cart badge, and \"Back to products\" returns to the inventory page.",
+        "Step 4 \u2014 Push to GitHub. Confirm your CI pipeline runs the new tests automatically and reports green."
+      ]
+    },
+    "reflection": "\"Before today, I thought building a new feature's tests from scratch, using everything I've learned, would feel like [X]. Today, I noticed that doing it actually felt like [Y]. That makes me feel [Z] about whether I could do this on day one of a real job. Tomorrow, I will [W].\"",
+    "further": [
+      {
+        "tag": "Article",
+        "text": "None today \u2014 you have everything you need already in five districts of reading behind you.",
+        "url": null
+      }
+    ],
+    "stretch": "Time yourself, honestly, from start to finish on today's task. Compare that to how long Day 4 \u2014 your very first script \u2014 took you. Write both numbers down. That comparison is worth more than anything I could say about your progress.",
+    "teaser": "Six districts down. Tomorrow, no code \u2014 an honest look at whether you'd actually trust yourself on a real team, starting Monday.",
+    "dayStart": 41,
+    "dayEnd": 41,
+    "isStage": false,
+    "isFinalDay": false
+  },
+  {
+    "day": 42,
+    "district": 6,
+    "districtName": "Integration",
+    "title": "Connecting the Dots",
+    "isSunday": true,
+    "recap": "Look back at your six reflections this week. Then write on:\n\n\u2013 Day 36 you counted real pain in your own codebase. Day 40 you measured that same pain reduced to almost nothing. Walk through that arc in your own words \u2014 what did proving it to yourself, with numbers, do that just reading about POM wouldn't have?\n\n\u2013 Day 41 asked you to build one feature using every skill from this cohort at once. What part felt automatic? What part still required conscious effort?\n\n\u2013 You're six districts in. If you compared your Day 4 test file to your Day 41 test file side by side, what's the single biggest difference \u2014 not in length, but in how you were thinking when you wrote each one?\n\n\u2013 Two districts remain: Identity, and Challenge Week. What does \"ready for a TAE role\" mean to you right now, today \u2014 not hypothetically, but honestly?\n\nNo minimum word count. Write what's true.",
+    "community": "Share your Day 36 vs. Day 40 numbers \u2014 the before and after selector counts. This is the single most satisfying data point in the entire cohort, and the community deserves to see everyone's version of \"I had 12, now I have 1.\"",
+    "rest": "This was a heavy district \u2014 not because the concepts were hard, but because refactoring working code takes real discipline. You didn't add a single new feature this week. You made everything you'd already built more trustworthy.\n\nThat's not glamorous work. It's the work that actually matters six months into a real job.",
+    "teaser": "District 7 starts Monday. You've been learning to test like an automation engineer. Next week, you start thinking like one \u2014 the identity shift, not just the skill set.",
+    "dayStart": 42,
+    "dayEnd": 42,
+    "isStage": false,
+    "isFinalDay": false
+  },
+  {
+    "day": 43,
+    "district": 7,
+    "districtName": "Identity",
+    "title": "Explain It to Someone Who Doesn't Code",
+    "isSunday": false,
+    "idea": "You can write a Page Object class. Can you explain what it does to your manager, who's never written a line of code? This isn't a lesser skill than the coding itself \u2014 in a real job, you'll explain your work to non-engineers constantly: product managers, stakeholders, your own manager during a 1:1.\n\nThe test: if you can't explain something simply, you don't understand it as well as you think you do. Jargon is often a hiding place, not a sign of expertise. I trust an engineer more when they can say \"this makes sure the checkout button still works after we change the page\" than when they hide behind \"we have E2E coverage on the critical path.\"",
+    "why": "I've sat in meetings where an engineer's technically accurate explanation completely lost the room, and the meeting moved on without their point landing \u2014 not because the point was wrong, but because nobody besides other engineers could follow it. Being right and being understood are different skills. Your career grows faster when you have both.",
+    "build": {
+      "tool": "Notebook, then a real conversation if possible",
+      "steps": [
+        "Pick your Day 41 product detail page test suite. Write a 3-sentence explanation of what it does and why it matters, using zero technical jargon \u2014 no \"selector,\" \"assertion,\" \"Page Object,\" or \"CI.\" Imagine explaining it to a friend who has never written code.",
+        "If you have anyone in your life willing to listen for two minutes \u2014 friend, family member, cohort partner \u2014 actually say it out loud to them.",
+        "Notice where you stumble or default back to jargon. That stumble is exactly what today is for."
+      ]
+    },
+    "reflection": "\"Before today, I thought explaining my technical work simply was [X].\nToday, I noticed that writing a jargon-free explanation revealed [Y] about how well I actually understand my own work.\nThat makes me feel [Z]. Tomorrow, I will [W].\"",
+    "further": [
+      {
+        "tag": "Article",
+        "text": "Search \"Feynman technique explaining complex topics\" \u2014 a simple method for testing your own understanding by explaining something simply.",
+        "url": null
+      }
+    ],
+    "stretch": "Write the same 3-sentence explanation for three more things you've built this cohort: your CI pipeline, your Page Object refactor, and your boundary value testing approach from District 3. Four plain-English explanations, ready whenever you need them.",
+    "teaser": "You can explain your own work now. Tomorrow someone questions it \u2014 and you find out whether you can defend a decision without getting defensive.",
+    "dayStart": 43,
+    "dayEnd": 43,
+    "isStage": false,
+    "isFinalDay": false
+  },
+  {
+    "day": 44,
+    "district": 7,
+    "districtName": "Identity",
+    "title": "Defending a Decision Without Getting Defensive",
+    "isSunday": false,
+    "idea": "On Day 30, you wrote a \"NOT testing this round, because...\" section \u2014 deliberately cut scope under a time limit. Today, someone challenges that decision. Maybe it's a teammate who thinks you missed something important. Maybe it's a manager who asks \"why didn't you cover X?\"\n\nThe instinct under challenge is often to get defensive \u2014 \"well I didn't have TIME\" \u2014 or to cave instantly \u2014 \"you're right, I'll add it.\" Neither is the senior move. The senior move is: state your reasoning calmly, listen to the actual objection, and either hold your position with a clear reason or update your view because the new information genuinely changed something.",
+    "why": "I've watched junior engineers fold the instant anyone pushes back, even when their original reasoning was sound \u2014 because disagreement feels like a personal attack instead of a normal part of engineering conversation. I've also watched engineers dig into a clearly wrong position because admitting a mistake felt worse than being wrong. Both responses cost trust. The skill is staying calm and reasoning-based in both directions.",
+    "build": {
+      "tool": "Notebook, then a real conversation if possible",
+      "steps": [
+        "Go back to your Day 30 \"NOT testing this round\" list. Pick the cut you're least confident about.",
+        "Write out, in your own voice, a calm two-sentence defense of why you cut it \u2014 and separately, write what would actually change your mind if someone gave you a good counter-argument.",
+        "If you can, have a cohort partner play the role of a skeptical teammate and actually push back on your reasoning out loud. Notice your own physical reaction \u2014 do you tense up? Talk faster? That's worth noticing, not judging."
+      ]
+    },
+    "reflection": "\"Before today, I thought disagreement about my technical decisions felt like [X]. Today, I noticed that defending a real cut, out loud, made me feel [Y]. That makes me feel [Z] about how I'll handle pushback in a real team. Tomorrow, I will [W].\"",
+    "further": [
+      {
+        "tag": "Article",
+        "text": "Search \"disagree and commit Amazon leadership principle\" \u2014 covers a well-known framework for healthy technical disagreement on real teams.",
+        "url": null
+      }
+    ],
+    "stretch": "Write down one technical opinion you currently hold with real confidence \u2014 something about testing, about Playwright, about how code should be organized. Then write the strongest counter-argument you can think of against your own position. Arguing against yourself honestly is harder than it sounds.",
+    "teaser": "You've defended your own decisions. Tomorrow you walk into someone else's messy, undocumented codebase \u2014 and find out if you can function without the comfort of code you already understand.",
+    "dayStart": 44,
+    "dayEnd": 44,
+    "isStage": false,
+    "isFinalDay": false
+  },
+  {
+    "day": 45,
+    "district": 7,
+    "districtName": "Identity",
+    "title": "Reading Someone Else's Mess",
+    "isSunday": false,
+    "idea": "Every test file you've written this cohort, you wrote. You know why every line exists because you put it there. Your first real job won't be like that. You'll inherit someone else's test suite \u2014 possibly poorly organized, possibly undocumented, possibly written by someone who left the company months ago.\n\nToday you practice the specific discomfort of not knowing. Find a public, real-world Playwright test repository on GitHub (search \"Playwright test examples site:github.com\" or look at Playwright's own examples folder in their repository) and spend 30 minutes trying to understand it as if you'd just inherited it on your first day.",
+    "why": "The confidence you've built this cohort is real, but it's built on code you wrote and understand completely. The actual job constantly asks you to operate without that comfort \u2014 reading code you didn't write, written in a style you wouldn't choose, sometimes without comments or a README. Practicing that discomfort now, in a low-stakes setting, makes the real version less destabilizing later.",
+    "build": {
+      "tool": "GitHub, notebook",
+      "steps": [
+        "Find a real Playwright test repository you've never seen. Spend 30 minutes exploring it: What's the folder structure? Does it use Page Object Model? Can you find one test and trace exactly what it does, end to end, without running it?",
+        "Write down: one thing this codebase does that you'd want to adopt, one thing you'd do differently, and one thing you genuinely couldn't figure out even after looking closely.",
+        "That third one is the most important \u2014 naming what you don't understand is a skill, not a weakness."
+      ]
+    },
+    "reflection": "\"Before today, I thought reading unfamiliar code would feel like [X]. Today, I noticed that spending 30 minutes in a real stranger's test suite actually felt like [Y]. That makes me feel [Z] about inheriting a real codebase on day one of a job. Tomorrow, I will [W].\"",
+    "further": [
+      {
+        "tag": "Article",
+        "text": "Search \"how to read unfamiliar codebases effectively\" \u2014 practical strategies experienced engineers use when joining a new team.",
+        "url": null
+      }
+    ],
+    "stretch": "Find a second, different repository \u2014 ideally one that does NOT use Page Object Model, or organizes things in a way that surprises you. Compare the two. Which one would you rather inherit, and why? Defend your answer the way you practiced defending decisions on Day 44.",
+    "teaser": "You've read someone else's mess. Tomorrow you sit in the other chair \u2014 reviewing code as if you're the senior engineer someone else is nervously waiting to hear from.",
+    "dayStart": 45,
+    "dayEnd": 45,
+    "isStage": false,
+    "isFinalDay": false
+  },
+  {
+    "day": 46,
+    "district": 7,
+    "districtName": "Identity",
+    "title": "Giving Feedback That Actually Helps",
+    "isSunday": false,
+    "idea": "On Day 32, you found gaps in a test plan I deliberately wrote incompletely. Today you go further: giving feedback on actual code, the way a code review works in a real team.\n\nGood feedback is specific, kind, and actionable \u2014 not \"this is wrong\" but \"this selector will break if the developer renames this class \u2014 consider using the data-test attribute instead, like you did in your LoginPage.\" Vague feedback (\"this could be better\") helps no one. Harsh feedback gets ignored or resented. The skill is precision delivered with respect.",
+    "why": "Code review is one of the most common ongoing responsibilities in any engineering role, including a TAE's. I've seen reviewers who are technically right but so harsh that people stop wanting their feedback \u2014 and I've seen reviewers so vague their comments change nothing. The engineers I trust most give feedback I actually want to receive, even when it's pointing out something I got wrong.",
+    "build": {
+      "tool": "VS Code, your own codebase",
+      "steps": [
+        "Pick one of your own Page Object files from District 6 \u2014 ideally one you wrote early in that district, before you'd fully settled into the pattern. Review it as if a colleague wrote it and handed it to you for feedback.",
+        "Write at least 4 pieces of specific, actionable feedback. For each, follow this shape: \"In [specific location], [specific issue]. Consider [specific suggestion], because [specific reason].\"",
+        "Then actually implement at least 2 of your own suggestions."
+      ]
+    },
+    "reflection": "\"Before today, I thought giving code feedback meant [X]. Today, I noticed that reviewing my own old code as if someone else wrote it revealed [Y]. That makes me feel [Z] about how I'll give feedback to real teammates. Tomorrow, I will [W].\"",
+    "further": [
+      {
+        "tag": "Article",
+        "text": "Search \"how to give constructive code review feedback\" \u2014 any solid engineering blog on the specific-kind-actionable framework.",
+        "url": null
+      }
+    ],
+    "stretch": "If anyone else in this cohort is willing, trade a piece of your code for a piece of theirs and give each other real feedback using today's framework. Receiving feedback on your own work is a different muscle than giving it \u2014 both are worth practicing.",
+    "teaser": "You've given feedback today. Tomorrow you're on the other side of it \u2014 and you'll find out whether you can receive real criticism of your work without your stomach dropping.",
+    "dayStart": 46,
+    "dayEnd": 46,
+    "isStage": false,
+    "isFinalDay": false
+  },
+  {
+    "day": 47,
+    "district": 7,
+    "districtName": "Identity",
+    "title": "Receiving Criticism Without Flinching",
+    "isSunday": false,
+    "idea": "Yesterday you gave feedback. Today you actively seek it out on something you genuinely care about \u2014 your best, most polished piece of work from this cohort so far.\n\nThe instinct when someone criticizes your code is often to explain why you did it that way, immediately, before you've actually absorbed what they said. That instinct protects your ego at the cost of actually hearing the feedback. The skill is a deliberate pause: hear it fully, ask a clarifying question if needed, and only then decide whether you agree.",
+    "why": "I've watched engineers' careers stall not because their code was bad, but because they were so visibly resistant to feedback that people stopped offering it \u2014 and silent disengagement from a reviewer is far worse than blunt criticism, because you never find out what they actually thought. The engineers who grow fastest are the ones who make it easy and safe to tell them the truth.",
+    "build": {
+      "tool": "Whatever feels true to you today",
+      "steps": [
+        "Pick the single piece of work from this cohort you're most proud of. Post it in the community (or share it with a study partner) and explicitly ask for honest, critical feedback \u2014 not compliments.",
+        "Say so directly: \"I want real critique, not reassurance.\"",
+        "When feedback comes in, practice the pause: read it fully twice before responding.",
+        "Write your initial emotional reaction privately first (this part is just for you), then write your actual response to the person \u2014 calm, curious, not defensive."
+      ]
+    },
+    "reflection": "\"Before today, I thought receiving criticism of my own work would feel like [X]. Today, I noticed that asking for it directly and pausing before responding made me feel [Y]. That makes me feel [Z] about my own relationship with being wrong or imperfect. Tomorrow, I will [W].\"",
+    "further": [
+      {
+        "tag": "Article",
+        "text": "Search \"growth mindset feedback Carol Dweck\" \u2014 the research background behind treating feedback as information, not judgment.",
+        "url": null
+      }
+    ],
+    "stretch": "Find the single piece of feedback you received today that stung the most. Sit with why it stung \u2014 was it because it was unfair, or because some part of you suspected it was true? Write the honest answer, even if nobody else ever reads it.",
+    "teaser": "You've given and received real feedback this week. Tomorrow you rehearse the conversation every TAE candidate dreads most \u2014 and I'm going to make you say the hard parts out loud.",
+    "dayStart": 47,
+    "dayEnd": 47,
+    "isStage": false,
+    "isFinalDay": false
+  },
+  {
+    "day": 48,
+    "district": 7,
+    "districtName": "Identity",
+    "title": "The Interview You're Dreading",
+    "isSunday": false,
+    "idea": "Every TAE candidate I've ever coached has one interview question that quietly terrifies them more than the rest. For some it's \"walk me through your test automation experience\" when they feel like a fraud claiming the title. For others it's a live coding challenge with someone watching. For others it's \"why should we hire you over someone with more experience?\"\n\nToday you name yours, specifically, instead of letting it stay a vague dread in the back of your mind. A specific fear is something you can actually prepare for. A vague one just sits there making you anxious.",
+    "why": "I've coached candidates through mock interviews where the moment they finally said their actual feared question out loud, the fear visibly shrank \u2014 not because the question got easier, but because rehearsal turns dread into familiarity. Avoidance keeps a fear exactly as large as it's ever been. Practice is the only thing that shrinks it.",
+    "build": {
+      "tool": "Notebook, then out loud if you can manage it",
+      "steps": [
+        "Write down the specific interview question or moment that scares you most about a real TAE interview. Be honest \u2014 not the generic answer, the real one.",
+        "Then write your actual answer to it, in your own words, as if you were in the room right now.",
+        "Read it out loud to yourself at least once, even alone in a room. If you can say it to another person \u2014 cohort partner, friend, mirror \u2014 do that instead."
+      ]
+    },
+    "reflection": "\"Before today, I thought naming my biggest interview fear directly would feel like [X]. Today, I noticed that writing and saying my actual answer out loud made me feel [Y]. That makes me feel [Z] about walking into a real interview. Tomorrow, I will [W].\"",
+    "further": [
+      {
+        "tag": "Article",
+        "text": "Search \"common test automation engineer interview questions\" \u2014 get a realistic sense of what's typically asked, beyond just your one feared question.",
+        "url": null
+      }
+    ],
+    "stretch": "Write your answer to the second-most-frightening question too. Most people only prepare for the question they're most scared of and get caught off guard by the second one instead.",
+    "teaser": "You've named your fear. Tomorrow you build the one document that makes every future interview easier \u2014 proof of what you've actually done, not just what you claim you can do.",
+    "dayStart": 48,
+    "dayEnd": 48,
+    "isStage": false,
+    "isFinalDay": false
+  },
+  {
+    "day": 49,
+    "district": 7,
+    "districtName": "Identity",
+    "title": "Your Proof, Not Your Claims",
+    "isSunday": false,
+    "idea": "\"I know Playwright\" is a claim. A GitHub repository with 40+ organized, passing tests, a working CI pipeline, and a clean README is proof. Today you build the document that turns seven weeks of work into something a hiring manager can actually evaluate in five minutes, instead of taking your word for it.\n\nThis isn't your resume. It's a portfolio summary \u2014 one page, written for someone who has 90 seconds and a stack of other candidates to get through.",
+    "why": "I've reviewed hundreds of TAE applications. The ones that stand out aren't the ones with the most confident claims \u2014 they're the ones where I can click a link and see real, organized, working code in under a minute. Claims are cheap. A live repository with a green CI badge is not.",
+    "build": {
+      "tool": "VS Code, your GitHub repository",
+      "steps": [
+        "Write a portfolio summary \u2014 roughly 200 words \u2014 covering: what you built (the Sauce Demo test automation project), the stack (JavaScript, Playwright, GitHub Actions), what it demonstrates (Page Object Model, data-driven testing, CI/CD, test prioritization), and a link to the live repository.",
+        "Make sure your repository's README (from Day 27) is current and the CI badge is green.",
+        "A hiring manager clicking through should see organized folders, a clear README, and a passing pipeline within seconds \u2014 not have to dig for it."
+      ]
+    },
+    "reflection": "\"Before today, I thought my portfolio was [X]. Today, I noticed that writing a 200-word summary of seven weeks of work made me realize [Y] about how much I've actually built. That makes me feel [Z]. Tomorrow, I will [W].\"",
+    "further": [
+      {
+        "tag": "Article",
+        "text": "Search \"how to write a technical portfolio summary\" \u2014 see how other engineers frame project work for non-technical reviewers skimming quickly.",
+        "url": null
+      }
+    ],
+    "stretch": "Ask someone outside this cohort \u2014 ideally someone non-technical \u2014 to read your 200-word summary and tell you, in their own words, what they think you built. If their summary doesn't match your intent, that's useful information about what to rewrite.",
+    "teaser": "You have proof now. Tomorrow, no code \u2014 just an honest accounting of who you were on Day 1 and who's actually sitting here today.",
+    "dayStart": 49,
+    "dayEnd": 49,
+    "isStage": false,
+    "isFinalDay": false
+  },
+  {
+    "day": 50,
+    "district": 7,
+    "districtName": "Identity",
+    "title": "Day 1 vs. Today, No Rounding Up",
+    "isSunday": false,
+    "idea": "No new skill today. Pull up your actual Day 1 reflection \u2014 not your memory of it, the real text you wrote. Read it slowly, start to finish.\n\nThen write an honest comparison: not a flattering one, not a falsely humble one, an accurate one. What did Day 1 you genuinely not understand that today you do? What did Day 1 you fear that you no longer fear? What's still actually shaky, even now \u2014 because pretending everything is solid isn't honesty, it's a different kind of performance.",
+    "why": "I ask every mentee to do this exercise because self-assessment without evidence is just vibes. Most people either wildly undersell their growth (the imposter syndrome direction) or wildly oversell it (the overconfidence direction). Comparing your actual Day 1 words to your actual Day 50 reality is the only honest measuring stick available to you.",
+    "build": {
+      "tool": "Your Day 1 reflection, notebook",
+      "steps": [
+        "Read your Day 1 reflection in full.",
+        "Write three specific, concrete comparisons \u2014 not \"I've improved,\" but \"On Day 1 I couldn't explain what a selector was; today I built four Page Object classes that encapsulate selectors entirely.\"",
+        "Be equally honest about what's still genuinely unsure or underdeveloped. A real self-assessment names both."
+      ]
+    },
+    "reflection": "\"Before today, I thought measuring my own growth accurately would be [X]. Today, I noticed that comparing my actual Day 1 words to where I am now revealed [Y]. That makes me feel [Z] about calling myself an automation engineer without an asterisk. Tomorrow, I will [W].\"",
+    "further": [
+      {
+        "tag": "Article",
+        "text": "None today. Today's reading is your own Day 1 reflection.",
+        "url": null
+      }
+    ],
+    "stretch": "Write the same exercise, but projected forward: what do you want your Day 66 self to be able to say honestly that today-you still can't? Be specific. This becomes your actual goal for the final district.",
+    "teaser": "You've measured your growth. Tomorrow you put it to the test \u2014 explaining your entire journey, start to finish, the way you actually would in a real interview room.",
+    "dayStart": 50,
+    "dayEnd": 50,
+    "isStage": false,
+    "isFinalDay": false
+  },
+  {
+    "day": 51,
+    "district": 7,
+    "districtName": "Identity",
+    "title": "Tell the Whole Story",
+    "isSunday": false,
+    "idea": "\"Tell me about yourself\" and \"walk me through your automation experience\" are nearly guaranteed interview openers. Most candidates either ramble without structure or undersell themselves out of habit. Today you build a tight, honest, two-minute answer \u2014 practiced enough to be smooth, honest enough to not feel like a script.\n\nA simple structure that works: where you started (manual tester, no automation experience) \u2192 what you did about it (this cohort, specific things you built) \u2192 where you are now (concrete, provable skills) \u2192 where you're headed (the kind of role and team you want).",
+    "why": "This single answer sets the tone for the entire interview. A strong, confident two-minute story signals competence before you've answered a single technical question. A rambling, apologetic one undermines you before the real evaluation even starts \u2014 regardless of how good your actual skills are.",
+    "build": {
+      "tool": "Notebook, then out loud, ideally recorded",
+      "steps": [
+        "Write your two-minute answer using the four-part structure above. Be specific \u2014 name Playwright, Sauce Demo, Page Object Model, your CI pipeline \u2014 don't stay vague and impressive-sounding instead of concrete and true.",
+        "Time yourself saying it out loud.",
+        "If you have a phone handy, record yourself once and actually watch or listen back \u2014 most people are surprised by how different they sound than they imagined."
+      ]
+    },
+    "reflection": "\"Before today, I thought telling my own story confidently would require [X]. Today, I noticed that building and rehearsing a structured two-minute answer made me feel [Y]. That makes me feel [Z] about walking into a real interview with this exact answer ready. Tomorrow, I will [W].\"",
+    "further": [
+      {
+        "tag": "Article",
+        "text": "Search \"tell me about yourself interview structure\" \u2014 see common frameworks experienced interviewers recommend.",
+        "url": null
+      }
+    ],
+    "stretch": "Cut your two-minute answer down to 30 seconds, for situations where you only get a brief introduction. Compression forces you to identify what actually matters most in your story.",
+    "teaser": "Seven districts of work. Tomorrow, no code \u2014 just the most honest conversation of this entire cohort, with yourself.",
+    "dayStart": 51,
+    "dayEnd": 51,
+    "isStage": false,
+    "isFinalDay": false
+  },
+  {
+    "day": 52,
+    "district": 7,
+    "districtName": "Identity",
+    "title": "Connecting the Dots",
+    "isSunday": true,
+    "recap": "Look back at your six reflections this week. Then write on:\n\n\u2013 This district had almost no new technical material. What was actually harder this week \u2014 the emotional and identity work, or the syntax from earlier districts? What does that tell you about what \"becoming an automation engineer\" really required from you?\n\n\u2013 Day 48 you named your single biggest interview fear. Has writing and rehearsing your answer actually changed how large that fear feels, even slightly?\n\n\u2013 Day 50 you compared your real Day 1 words to today, with no rounding up. What's the most honest sentence you can write right now about where you actually stand?\n\n\u2013 You have one district left: Challenge Week. What does finishing this cohort actually mean to you \u2014 not the certificate, the actual change in how you see yourself?\n\nNo minimum word count. Write what's true.",
+    "community": "Share your Day 51 two-minute \"tell me about yourself\" answer with the community \u2014 written or recorded, your choice. Hearing seven other people's versions of the same journey, told in their own words, is one of the most validating things this cohort offers.",
+    "rest": "This was the most emotionally demanding district in the cohort, even though it required almost no new code. Identity work is real work.\n\nYou earned the rest this week more than almost any other.",
+    "teaser": "Challenge Week starts Monday \u2014 the final 14 days. No new content from me. You pick a real problem, build something real, and ship it. Everything from the last seven weeks, applied to something that's actually yours.",
+    "dayStart": 52,
+    "dayEnd": 52,
+    "isStage": false,
+    "isFinalDay": false
+  },
+  {
+    "day": 53,
+    "dayStart": 53,
+    "dayEnd": 54,
+    "district": 8,
+    "districtName": "Challenge Week",
+    "title": "Stage 1: Think Value",
+    "isStage": true,
+    "stageLabel": "Days 53\u201354",
+    "framing": "No new syntax this district. Stage 1 is two days of decision-making, not building. Most people want to skip straight to coding \u2014 resist that. The project you pick in the next 48 hours determines whether the next twelve days feel purposeful or aimless.",
+    "sections": [
+      {
+        "heading": "The question to answer",
+        "body": "Define the problem. Who is it for? What would they actually exchange \u2014 time, money, attention \u2014 for a solution?\n\nThree honest project options, ranked by what I'd actually recommend:\n\nOPTION A \u2014 Expand Sauce Demo coverage (recommended default)\nPick a part of Sauce Demo you've never tested: the \"About\" link that exits to Sauce Labs' real site, a specific cart edge case, or full coverage of the sort dropdown across every product. Build a small, complete, professional-grade test suite for it \u2014 fully planned, Page-Object-based, CI-wired.\nBest for: learners who want a tight, defensible portfolio piece without the risk of an unfamiliar app.\n\nOPTION B \u2014 A different public demo app\nPick a different publicly available demo site (search \"open source demo website for testing practice\") and build a small test suite from scratch \u2014 full exploration, full planning, full implementation \u2014 proving you can do this on an app you've never seen, not just Sauce Demo.\nBest for: learners who want to prove range, and who are confident enough to skip the safety net of a familiar app.\n\nOPTION C \u2014 Something from your own work\nIf you currently work in QA and have a real feature at your job that has zero automated coverage (and you're allowed to write about it publicly, or you anonymize it appropriately), automate it. This is the highest-value option if it's available to you.\nBest for: learners already employed in QA who want their Challenge Week project to be immediately useful at their actual job."
+      },
+      {
+        "heading": "Curiosity Mode vs. Clarity Mode",
+        "body": "Curiosity Mode: pick several small, separate experiments across the two weeks \u2014 different parts of Sauce Demo, a few different techniques, no single unifying deliverable.\n\nClarity Mode: pick ONE project and take it from rough to polished across the full two weeks \u2014 what most hiring managers expect to see in a portfolio link.\n\nI recommend Clarity Mode for this cohort specifically, because a single polished project is what you'll actually point to in an interview. Curiosity Mode is valid if you genuinely want to explore \u2014 but know that trade-off going in."
+      }
+    ],
+    "build": {
+      "tool": "Notebook",
+      "steps": [
+        "Choose your option (A, B, or C) and your mode (Curiosity or Clarity).",
+        "Write what you're building, in one sentence.",
+        "Write who it's for \u2014 be specific, not \"users,\" but \"a hiring manager evaluating my TAE candidacy\" or \"my actual QA team at work.\"",
+        "Write what \"done\" looks like by Day 66 \u2014 concrete and checkable, not vague.",
+        "Write a rough day-by-day budget across the remaining 12 build days.",
+        "Run a pre-mortem: imagine it's Day 66 and the project failed. Write three honest reasons why it might have failed \u2014 scope too large, technology unfamiliar, picked something boring, ran out of time on planning instead of building. Naming these now is how you avoid them."
+      ]
+    },
+    "reflection": "\"Before today, I thought choosing my own project would feel like [X].\nToday, I noticed that actually deciding \u2014 and running a pre-mortem on my own idea \u2014 made me feel [Y].\nThat makes me feel [Z] about owning this decision instead of being handed one.\nThis week, I will [W].\"",
+    "teaser": "Decision made. Tomorrow you stop thinking about the project and start thinking about how you'll build it \u2014 without writing a single line of test code yet.",
+    "isSunday": false,
+    "isFinalDay": false
+  },
+  {
+    "day": 55,
+    "dayStart": 55,
+    "dayEnd": 57,
+    "district": 8,
+    "districtName": "Challenge Week",
+    "title": "Stage 2: Create Value",
+    "isStage": true,
+    "stageLabel": "Days 55\u201357",
+    "framing": "Three days. No code yet \u2014 or minimal code, if exploration requires it. This is where you apply every planning skill from District 5 to your own chosen project, for real, with real stakes, because this time nobody's going to hand you a structure to follow.",
+    "sections": [
+      {
+        "heading": "The Experience Hierarchy",
+        "body": "Functional \u2192 Reliable \u2192 Usable \u2192 Convenient \u2192 Pleasurable \u2192 Delightful. Start with Functional. I will keep repeating this because it's the single most common mistake in Challenge Week across every cohort I've run: people try to make their project delightful before it's reliably functional. A test suite that covers three things solidly beats one that attempts twelve things shakily."
+      }
+    ],
+    "build": {
+      "tool": "Notebook for Days 55\u201356, VS Code for Day 57",
+      "steps": [
+        "Days 55\u201356: Explore your chosen feature/app like a first-time user (Day 29 process).",
+        "Days 55\u201356: Write your complete test plan, time-boxed realistically (Day 30 discipline).",
+        "Days 55\u201356: If your project involves multi-step or stateful flows, apply Day 31's three extra questions.",
+        "Days 55\u201356: Prioritize using Impact \u00d7 Likelihood scoring (Day 33) \u2014 you will not have time to build everything you list, and that's expected.",
+        "Day 57: Set up your project skeleton \u2014 repository initialized, folder structure decided (auth/inventory/checkout-style organization, or whatever fits your chosen app), Page Object file stubs created even if empty, playwright.config.js in place. No real test logic yet \u2014 just the scaffolding that makes Days 59\u201363 fast instead of chaotic."
+      ]
+    },
+    "reflection": "\"Before this stage, I thought planning my own project would be [X], compared to planning an assigned one.\nNow that I've actually done it, I noticed [Y].\nThat makes me feel [Z] about the difference between practicing on a feature I'm handed versus owning the whole decision.\nThis week, I will [W].\"",
+    "teaser": "Plan is done. Skeleton is built. Tomorrow the actual building starts \u2014 five days, head down, executing your own plan.",
+    "isSunday": false,
+    "isFinalDay": false
+  },
+  {
+    "day": 58,
+    "dayStart": 58,
+    "dayEnd": 58,
+    "district": 8,
+    "districtName": "Challenge Week",
+    "title": "Mid-Week Checkpoint (Required)",
+    "isStage": true,
+    "stageLabel": "Day 58",
+    "framing": "This single day exists for one reason: to catch a stalled or overscoped project while there's still time to fix it. Per the cohort design, this is non-negotiable \u2014 Day 58 is the day I check whether you're on track, honestly, before it's too late to recover.",
+    "sections": [
+      {
+        "heading": "Post in the community",
+        "body": "A 2-3 sentence update: what's working, what's broken. This isn't about looking impressive. It's the build-in-public habit from the original cohort design \u2014 and reading other people's honest mid-week status is often more useful than reading their finished projects."
+      }
+    ],
+    "build": {
+      "tool": "Notebook, your in-progress repository",
+      "steps": [
+        "Answer honestly, in writing: what's actually working right now \u2014 running, passing, real?",
+        "What's broken or incomplete?",
+        "Compared to your Day 53 day-by-day budget, are you ahead, on track, or behind?",
+        "If behind: what are you cutting? Go back to your Day 53 \"done\" definition and revise it honestly. A smaller finished project beats a larger unfinished one every time \u2014 this is Day 30's lesson, applied to your own work under real stakes."
+      ]
+    },
+    "reflection": "\"Before today, I expected to be [X] by the midpoint of Challenge Week.\nToday, I'm actually [Y].\nThat makes me feel [Z] about my own planning accuracy from Days 53-57.\nThis week, I will [W].\"",
+    "teaser": "Status checked, scope adjusted if needed. Tomorrow you go back to building \u2014 with a clearer, more honest picture of what \"done\" actually means now.",
+    "isSunday": false,
+    "isFinalDay": false
+  },
+  {
+    "day": 59,
+    "dayStart": 59,
+    "dayEnd": 63,
+    "district": 8,
+    "districtName": "Challenge Week",
+    "title": "Stage 3: Execute Value",
+    "isStage": true,
+    "stageLabel": "Days 59\u201363",
+    "framing": "Five days. Build and polish. Done beats perfect \u2014 that's not permission to be sloppy, it's a real constraint: a complete, slightly-rough project beats an incomplete, beautiful one, every single time, in a portfolio and in a real job.",
+    "sections": [
+      {
+        "heading": "What \"execute\" means here",
+        "body": "Apply everything from Districts 1 through 7 to your own project, as it actually fits \u2014 not as a checklist to satisfy, but as the real toolkit it is:\n\n\u2013 Page Object Model for every page or screen you test (District 6)\n\u2013 Strong assertions, not weak ones (Day 18)\n\u2013 Data-driven tests wherever you have repeated logic with varying inputs (Day 17)\n\u2013 Proper file organization (District 4)\n\u2013 A working CI pipeline running your suite automatically (Days 24-26)\n\u2013 A README that explains the project clearly to someone who's never seen it (Day 27, Day 49's portfolio-summary instinct)"
+      },
+      {
+        "heading": "Daily discipline",
+        "body": "Each day, post a 2-3 sentence build-in-public update to the community \u2014 what you built today, in plain language. This is the original cohort habit from the master design, and it keeps Challenge Week from becoming five silent, isolated days."
+      },
+      {
+        "heading": "When you get stuck",
+        "body": "Apply Day 5's debugging discipline: read the actual error message before changing anything. Apply Day 45's instinct: if you're stuck on something genuinely unfamiliar, that discomfort is expected, not a sign you're behind."
+      }
+    ],
+    "build": {
+      "tool": "VS Code, GitHub",
+      "steps": [
+        "Build your prioritized test cases from Stage 2, applying Page Object Model, strong assertions, and data-driven patterns where they fit.",
+        "Wire up your CI pipeline so your suite runs automatically.",
+        "Write your README as you go, not all at once at the end.",
+        "Post a daily 2-3 sentence build-in-public update to the community."
+      ]
+    },
+    "reflection": "\"Before this stage, I thought five days of focused building would feel like [X].\nLooking back, it actually felt like [Y].\nThat makes me feel [Z] about sustained, self-directed work without daily instructions from me.\nTomorrow, I will [W].\" (Write this once, at the end of Day 63.)",
+    "teaser": "Five days of building is done. Tomorrow you stop adding anything new \u2014 and turn what you built into something someone else could actually understand and use.",
+    "isSunday": false,
+    "isFinalDay": false
+  },
+  {
+    "day": 64,
+    "dayStart": 64,
+    "dayEnd": 64,
+    "district": 8,
+    "districtName": "Challenge Week",
+    "title": "Stage 4: Communicate Value \u2014 Submit",
+    "isStage": true,
+    "stageLabel": "Day 64",
+    "framing": "No new building today. A finished project nobody can understand is barely more valuable than an unfinished one. Today you make your work legible to someone who wasn't there while you built it \u2014 exactly the skill you practiced in District 7.",
+    "sections": [
+      {
+        "heading": "Submit to the community",
+        "body": "Post your finished project \u2014 repository link, README, and optional video \u2014 to the cohort community as your official Challenge Week submission."
+      }
+    ],
+    "build": {
+      "tool": "VS Code, GitHub, your project",
+      "steps": [
+        "Finalize your README \u2014 apply Day 27's structure and Day 49's portfolio-summary instinct together: what this is, the stack, how to run it locally, your folder structure and why, how CI works, and a CI status badge that's actually green.",
+        "Write a short public post \u2014 LinkedIn, the cohort community, or both \u2014 announcing what you built. Use your Day 51 \"tell the whole story\" structure: where you started, what you did, where you are now, where you're headed. Link directly to your repository.",
+        "Optional but recommended: record a 2-3 minute Loom or screen recording walking through your project \u2014 what it tests, why, and a live run of your CI pipeline passing. This is one of the highest-signal artifacts you can hand a hiring manager."
+      ]
+    },
+    "reflection": "\"Before today, I thought 'finishing' a project meant [X]. Today, I noticed that writing the public-facing version of my work made me realize [Y] about the difference between a project that works and a project that's actually shippable. That makes me feel [Z]. Tomorrow, I will [W].\"",
+    "teaser": "Your project is out in the world now. Tomorrow isn't about your own work at all \u2014 it's about everyone else's.",
+    "isSunday": false,
+    "isFinalDay": false
+  },
+  {
+    "day": 65,
+    "dayStart": 65,
+    "dayEnd": 65,
+    "district": 8,
+    "districtName": "Challenge Week",
+    "title": "Stage 5: Capture Value \u2014 Celebrate Others",
+    "isStage": true,
+    "stageLabel": "Day 65",
+    "framing": "\"Capture Value\" in the original framework means getting at least one real person to use or engage with what you built \u2014 even a small exchange validates it as real, not theoretical. Today, that exchange is mutual: you review and engage with the work of others in this cohort, the same way you'd want them to engage with yours.",
+    "sections": [],
+    "build": {
+      "tool": "Community, GitHub",
+      "steps": [
+        "Review at least 3 other learners' Challenge Week submissions.",
+        "For each, apply Day 46's feedback framework \u2014 specific, kind, actionable: \"In [location], [observation]. Consider [suggestion], because [reason].\"",
+        "Find at least one genuine thing to praise and one genuine, useful suggestion per project \u2014 not empty encouragement, real engagement.",
+        "If you have a LinkedIn presence, consider genuinely engaging with at least one cohort-mate's public post about their project \u2014 this is \"capturing value\" in the most literal, career-relevant sense: real visibility for real work, exchanged mutually."
+      ]
+    },
+    "reflection": "\"Before today, I thought reviewing other people's finished projects, after just finishing my own, would feel like [X]. Today, I noticed it actually felt like [Y]. That makes me feel [Z] about this cohort as a community rather than just a course I completed alone. Tomorrow, I will [W].\"",
+    "teaser": "Tomorrow is the last day. Not a new project, not new code \u2014 just the actual ending, the one this whole cohort has been pointed toward since Day 1.",
+    "isSunday": false,
+    "isFinalDay": false
+  },
+  {
+    "day": 66,
+    "dayStart": 66,
+    "dayEnd": 66,
+    "district": 8,
+    "districtName": "Challenge Week",
+    "title": "The Last Day",
+    "isStage": true,
+    "isFinalDay": true,
+    "stageLabel": "Day 66",
+    "framing": "No build today. This is the day the whole cohort has pointed toward since the very first reflection you wrote. Sixty-five days ago, you described yourself as someone who'd never written a line of automation. Today, you have a real, working, CI-verified test automation project with your name on it, and a story you can tell about how you got here.",
+    "sections": [
+      {
+        "heading": "Community prompt",
+        "body": "Share whatever feels true to share \u2014 your Day 1 versus Day 66 comparison, your finished project, a thank-you to someone in the community who helped you, or nothing at all if that's what's honest. There's no required performance on the last day."
+      }
+    ],
+    "build": null,
+    "reflection": "Pull up your actual Day 1 reflection one final time \u2014 the real text, not your memory of it. Then write your Day 66 reflection in full, addressing:\n\n\u2013 Read your Day 1 words slowly. Who was that person, honestly?\n\u2013 Walk through your own journey, district by district: The Shift, The Language, Test Like a Pro, Systems, Planning, Integration, Identity, Challenge Week. What changed in each one, specifically?\n\u2013 What does it mean to you, right now, today, to call yourself a test automation engineer \u2014 not hypothetically, not \"almost,\" but actually?\n\u2013 What's next? Not \"I hope to get a job someday\" \u2014 name the actual next concrete step you're taking, this week, after this cohort ends.\n\nNo minimum word count. This is the only reflection in the entire cohort I'd ask you to take real time with \u2014 not because of a rule, but because you've earned the right to actually sit with what you built.",
+    "teaser": "COHORT COMPLETE. You are a test automation engineer. Not because a certificate says so. Because sixty-six days of evidence says so.",
+    "isSunday": false
+  }
+]
