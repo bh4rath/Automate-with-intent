@@ -6,7 +6,7 @@ export function useCohortData() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch('/cohort-data.json')
+    fetch(`${import.meta.env.BASE_URL}cohort-data.json`)
       .then((r) => {
         if (!r.ok) throw new Error('Failed to load cohort data');
         return r.json();

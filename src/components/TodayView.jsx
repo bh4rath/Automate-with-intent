@@ -65,9 +65,9 @@ export default function TodayView({ entries, isCompleted, markComplete, external
       );
     }
 
-    if (entry.isSunday) return <SundayEntry entry={entry} isCompleted={completed} onComplete={markComplete} />;
-    if (entry.isStage) return <StageEntry entry={entry} isCompleted={completed} onComplete={markComplete} />;
-    return <WeekdayEntry entry={entry} isUnlocked={unlocked} isCompleted={completed} onComplete={markComplete} />;
+    if (entry.isSunday) return <SundayEntry key={entry.dayStart} entry={entry} isCompleted={completed} onComplete={markComplete} />;
+    if (entry.isStage) return <StageEntry key={entry.dayStart} entry={entry} isCompleted={completed} onComplete={markComplete} />;
+    return <WeekdayEntry key={entry.dayStart} entry={entry} isUnlocked={unlocked} isCompleted={completed} onComplete={markComplete} />;
   }
 
   const dayLabel = entry.isStage ? entry.stageLabel : `Day ${entry.day}`;
