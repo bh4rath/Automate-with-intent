@@ -77,3 +77,28 @@ code[class*="language-"] {
 .token.parameter { color: #f07178; }
 .token.property { color: #f07178; }
 .token.boolean { color: #ff5370; }
+
+/* ── Mobile responsiveness ─────────────────────────────────── */
+@media (max-width: 640px) {
+  /* Navbar: scroll tabs horizontally, hide progress pill */
+  .nav-tabs-container {
+    overflow-x: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .nav-tabs-container::-webkit-scrollbar { display: none; }
+  .nav-progress { display: none !important; }
+
+  /* TodayView: account for mobile-bar height (~48px) in layout */
+  .today-content-wrapper { height: calc(100vh - 105px) !important; }
+
+  /* Reduce main content padding on small screens */
+  .today-main-content { padding: 1.25rem 1rem !important; }
+
+  /* Allow DayHeader breadcrumb to wrap */
+  .day-header-meta { flex-wrap: wrap !important; row-gap: 4px !important; }
+
+  /* ProgressView: 2-column stat cards */
+  .progress-stats { flex-wrap: wrap; }
+  .progress-stats > * { min-width: calc(50% - 0.5rem); }
+}

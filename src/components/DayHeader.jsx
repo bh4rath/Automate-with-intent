@@ -19,7 +19,7 @@ export default function DayHeader({ entry }) {
 
   return (
     <div style={{ marginBottom: '1.5rem' }}>
-      <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '0.4rem' }}>
+      <div className="day-header-meta" style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '0.4rem' }}>
         <span
           style={{
             fontFamily: "'Space Mono', monospace",

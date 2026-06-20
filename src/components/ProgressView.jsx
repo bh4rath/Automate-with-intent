@@ -99,7 +99,7 @@ export default function ProgressView({ entries, isCompleted, onSelectEntry }) {
       </div>
 
       {/* Stats */}
-      <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+      <div className="progress-stats" style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
         <StatCard value={daysCompleted} label="Days Done" color="var(--accent)" />
         <StatCard value={streak} label="Current Streak" color="var(--green)" />
         <StatCard value={daysRemaining} label="Days Remaining" color="var(--amber)" />

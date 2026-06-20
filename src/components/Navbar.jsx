@@ -65,6 +65,7 @@ export default function Navbar({ activeTab, onTabChange, daysCompleted }) {
 
       {/* Tabs */}
       <div
+        className="nav-tabs-container"
         style={{
           display: 'flex',
           alignItems: 'center',
@@ -97,6 +98,7 @@ export default function Navbar({ activeTab, onTabChange, daysCompleted }) {
 
       {/* Progress pill */}
       <div
+        className="nav-progress"
         style={{
           display: 'flex',
           alignItems: 'center',

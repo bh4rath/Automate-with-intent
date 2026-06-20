@@ -109,7 +109,7 @@ export default function TodayView({ entries, isCompleted, markComplete, external
         </span>
       </div>
 
-      <div style={{ display: 'flex', height: 'calc(100vh - 57px)', overflow: 'hidden' }}>
+      <div className="today-content-wrapper" style={{ display: 'flex', height: 'calc(100vh - 57px)', overflow: 'hidden' }}>
         {/* Desktop Sidebar */}
         <div className="sidebar-desktop">
           <Sidebar
@@ -146,7 +146,7 @@ export default function TodayView({ entries, isCompleted, markComplete, external
         )}
 
         {/* Main content */}
-        <main style={{ flex: 1, overflowY: 'auto', padding: '2rem 2.5rem' }}>
+        <main className="today-main-content" style={{ flex: 1, overflowY: 'auto', padding: '2rem 2.5rem' }}>
           <div style={{ maxWidth: 740, margin: '0 auto' }}>
             <DayHeader entry={entry} />
             {renderEntry()}
